@@ -1,0 +1,89 @@
+:root {
+  --uiwidth: 19rem;
+  --uiheigth: 19rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.coordinates {
+  position: absolute;
+  top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.reverb {
+  position: absolute;
+  top: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pad {
+  position: relative;
+  width: var(--uiwidth);
+  height: var(--uiheigth);
+  background-color: #ddd;
+  border: 2px solid #333;
+}
+
+.circle {
+  position: absolute;
+  width: var(--testaslider);
+  height: var(--testaslider);
+  background-color: #ff5722;
+  border-radius: 50%;
+  cursor: grab;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:root {
+  --testaslider: 3rem;
+  --spessoreslider: 1rem;
+}
+
+.slider-container{
+  width: var(--uiwidth);
+  position: absolute;
+  bottom: 4rem;
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: var(--spessoreslider); /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  border-radius: 50%;
+  width: var(--testaslider); /* Set a specific slider handle width */
+  height: var(--testaslider); /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  border-radius: 50%;
+  width: var(--testaslider); /* Set a specific slider handle width */
+  height: var(--testaslider); /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+}
