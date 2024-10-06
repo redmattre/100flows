@@ -3,6 +3,8 @@ var ioClient = io();
 roomName = "testRoom"
 let password = "";
 
+let globalMessage = "";
+
 makeClient()
 
 setTimeout(()=>{
@@ -13,8 +15,10 @@ setTimeout(()=>{
 function makeClient() {
 
     ioClient.on('datachannel', (msg) => {
-        console.log(msg)
-    })
+        console.log(msg);
+        globalMessage = msg; // Salva il messaggio nella variabile globale
+        updateMessage(); // Funzione che aggiorna il contenuto del div
+      });
 
     ioClient.on('systemchannel', (msg) => {
         console.log(msg)
@@ -42,11 +46,22 @@ function makeClient() {
 
 //funzione magica
 
+// Funzione per aggiornare il testo del div con l'ID 'messageBox'
+function updateMessage() {
+    const messageBox = document.getElementById("messageBox");
+    messageBox.textContent = globalMessage;
+  }
+
 function send (msg) {
   ioClient.emit("datachannel", roomName, msg);
 }
 
 // send("coord " + x + y);
+
+ioClient.on('datachannel', (msg) => {
+    console.log("Received from server: ", msg);
+    // Aggiungi qui la logica per gestire i dati ricevuti
+});
 
 //cerchio////////////////////////////////////////////////////////////////////
 
@@ -100,8 +115,11 @@ function drag(e) {
     x = Math.max(-circleRadius, Math.min(x, padRect.width - circleRadius));
     y = Math.max(-circleRadius, Math.min(y, padRect.height - circleRadius));
 
-    const xNormalized = (x + circleRadius) / (padRect.width - circleDiameter);
-    const yNormalized = (y + circleRadius) / (padRect.height - circleDiameter);
+    // const xNormalized = (x + circleRadius) / (padRect.width - circleDiameter);
+    // const yNormalized = (y + circleRadius) / (padRect.height - circleDiameter);
+
+    const xNormalized = (x + circleRadius) / padRect.width;
+    const yNormalized = 1 - ((y + circleRadius) / padRect.height); //cambia l'origine da in alto a in basso
 
     // Move the circle, ensuring it's centered around the mouse or touch
     circle.style.left = `${x + circleRadius}px`;

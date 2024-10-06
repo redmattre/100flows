@@ -7,6 +7,7 @@ const fs = require('fs');
 const socketio = require('socket.io')
 const rooms = require('./rooms.js')
 const Max = require('max-api')
+let roomName = "testRoom";
 
 
 let httpsServer;
@@ -47,20 +48,20 @@ io.on('connection', (socket) => {
     })
 
     socket.on('datachannel', (room, data) => {
-        const requestedRoom = rooms.findRoomByName(room)
-        //if user is in allowed list, send data to others
+        const requestedRoom = rooms.findRoomByName(room);
+        // Se il client è nella lista di allowedList, invia solo a Max MSP e non agli altri client
         if (requestedRoom != null) {
             if (requestedRoom.allowedList.indexOf(socket.id) !== -1) {
-                socket.to(room).emit('datachannel', data)
-                console.log('cmd '+ socket.id + ' ' + data)
+                // Invia il messaggio a Max MSP tramite Max API
+                Max.outlet(data); // Invia il messaggio a Max
+                console.log('cmd ' + socket.id + ' ' + data);
             } else {
-                socket.emit('systemchannel', 'Wrong Password')
+                socket.emit('systemchannel', 'Wrong Password');
             }
+        } else {
+            socket.emit('systemchannel', 'You are not connected to a room');
         }
-        else {
-            socket.emit('systemchannel', 'You are not connected to a room')
-        }
-    })
+    });
 
     socket.on('objchannel', (room, data) => {
         const requestedRoom = rooms.findRoomByName(room)
@@ -85,6 +86,16 @@ io.on('connection', (socket) => {
         console.log('disconnect ' + socket.id)
     })
 })
+
+Max.addHandler("sendToClient", (msg) => {
+    if (!roomName || roomName === "") {
+        Max.post("Error: No room joined. Please set a room using the 'roomName' handler.");
+    } else {
+        // Invia messaggio ai client nella stanza
+        io.to(roomName).emit('datachannel', msg);
+        Max.post(`Sent message to client: ${msg}`);
+    }
+});
 
 function createServer(){
     // create https server if ssl keys are set properly and passed by argument
