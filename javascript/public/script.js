@@ -1,9 +1,16 @@
 var address = "http://127.0.0.1:7776";
 var ioClient = io();
-roomName = "testRoom"
 let password = "";
 
-let globalMessage = "";
+// let globalMessage = "";
+
+// Funzione per ottenere i parametri dell'URL (es. ?room=stanza1)
+function getRoomFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('room') || 'testRoom';  // Se non è specificato, metti una stanza predefinita
+}
+
+var roomName = getRoomFromUrl();
 
 makeClient()
 
@@ -15,14 +22,31 @@ setTimeout(()=>{
 function makeClient() {
 
     ioClient.on('datachannel', (msg) => {
-        console.log(msg);
-        globalMessage = msg; // Salva il messaggio nella variabile globale
-        updateMessage(); // Funzione che aggiorna il contenuto del div
-      });
-
-    ioClient.on('systemchannel', (msg) => {
-        console.log(msg)
-    })
+        try {
+            const data = JSON.parse(msg);
+            
+            // Log per verificare i dati ricevuti
+            console.log("Messaggio ricevuto:", data);
+    
+            // Aggiorna il trackName
+            updateMessage(data.track);
+    
+            // Verifica se i dati delle coordinate e dello slider sono presenti
+            if (data.circleX !== undefined && data.circleY !== undefined && data.slider !== undefined) {
+                console.log(`Coords: X: ${data.circleX}, Y: ${data.circleY}, Slider: ${data.slider}`);
+                updateCircle(data.circleX, data.circleY);
+                updateSlider(data.slider);
+            }
+    
+            // Aggiorna la dimensione del pad se viene mandato a tutti
+            if (data.padSize) {
+                console.log("Pad size:", data.padSize);
+                updatePadSize(data.padSize);
+            }
+        } catch (error) {
+            console.log("Received non-JSON message:", msg);
+        }
+    });
 
     ioClient.on("disconnect", (msg) => {
         if (msg !== undefined && msg !== null) {
@@ -44,13 +68,46 @@ function makeClient() {
     }
 }
 
-//funzione magica
+function updateCircle(circleX, circleY) {
+    const pad = document.querySelector('.pad');
+    const circle = document.getElementById('circle');
+    const padRect = pad.getBoundingClientRect();
+
+    // Calcola le posizioni basate sul centro del cerchio
+    const x = (circleX * padRect.width);
+    const y = ((1 - circleY) * padRect.height);
+
+    // Log per debug
+    console.log("Posizione del cerchio centrata:", x, y);
+
+    // Aggiorna la posizione del cerchio sulla base delle nuove coordinate centrate
+    circle.style.left = `${x}px`;
+    circle.style.top = `${y}px`;
+}
+
+function updateSlider(sliderValue) {
+    const reverbSlider = document.getElementById('reverb-slider');
+    const reverbDisplay = document.getElementById('reverb');
+
+    // Log del valore dello slider ricevuto
+    console.log("Aggiornamento slider - valore:", sliderValue);
+
+    reverbSlider.value = sliderValue;
+    reverbDisplay.textContent = `R: ${sliderValue}`;
+}
+
+// Funzione per aggiornare la dimensione del pad
+function updatePadSize(padSize) {
+    const pad = document.querySelector('.pad');
+    pad.style.width = `${padSize}px`;
+    pad.style.height = `${padSize}px`;
+}
 
 // Funzione per aggiornare il testo del div con l'ID 'messageBox'
-function updateMessage() {
+function updateMessage(trackName) {
     const messageBox = document.getElementById("messageBox");
-    messageBox.textContent = globalMessage;
-  }
+    messageBox.textContent = trackName;
+}
 
 function send (msg) {
   ioClient.emit("datachannel", roomName, msg);
@@ -165,4 +222,3 @@ function updateReverb() {
     reverbDisplay.textContent = `R: ${reverbValue}`;
     send("sendrev " + reverbValue);
 }
-

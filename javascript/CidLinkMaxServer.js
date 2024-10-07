@@ -49,12 +49,19 @@ io.on('connection', (socket) => {
 
     socket.on('datachannel', (room, data) => {
         const requestedRoom = rooms.findRoomByName(room);
-        // Se il client è nella lista di allowedList, invia solo a Max MSP e non agli altri client
+        // Se l'utente è autorizzato a inviare dati nella stanza
         if (requestedRoom != null) {
             if (requestedRoom.allowedList.indexOf(socket.id) !== -1) {
-                // Invia il messaggio a Max MSP tramite Max API
-                Max.outlet(data); // Invia il messaggio a Max
-                console.log('cmd ' + socket.id + ' ' + data);
+                // Inviare il messaggio agli altri client nella stanza
+                socket.to(room).emit('datachannel', data);
+    
+                // Formattare il messaggio con il nome della stanza
+                const messageForMax = `${room}: ${data}`;
+    
+                // Inviare il messaggio formattato a Max
+                Max.outlet(messageForMax);
+    
+                console.log(`cmd ${socket.id} ${messageForMax}`);
             } else {
                 socket.emit('systemchannel', 'Wrong Password');
             }
@@ -62,6 +69,7 @@ io.on('connection', (socket) => {
             socket.emit('systemchannel', 'You are not connected to a room');
         }
     });
+
 
     socket.on('objchannel', (room, data) => {
         const requestedRoom = rooms.findRoomByName(room)
@@ -87,14 +95,35 @@ io.on('connection', (socket) => {
     })
 })
 
-Max.addHandler("sendToClient", (msg) => {
-    if (!roomName || roomName === "") {
-        Max.post("Error: No room joined. Please set a room using the 'roomName' handler.");
-    } else {
-        // Invia messaggio ai client nella stanza
-        io.to(roomName).emit('datachannel', msg);
-        Max.post(`Sent message to client: ${msg}`);
-    }
+// Gestire l'invio di un messaggio a una specifica stanza
+// Max.addHandler("sendToRoom", (roomName, message) => {
+//     Max.post(`Sending message to room: ${roomName}, message: ${message}`);
+//     io.to(roomName).emit('datachannel', message);
+// });
+
+Max.addHandler("sendToRoom", (roomName, trackName, x, y, sliderValue) => {
+    const message = JSON.stringify({
+        track: trackName,
+        circleX: x,
+        circleY: y,
+        slider: sliderValue
+    });
+
+    io.to(roomName).emit('datachannel', message);
+    Max.post(`Sending to room: ${roomName}, x: ${x}, y: ${y}, slider: ${sliderValue}`);
+});
+
+// Max.addHandler("sendMessageToAll", (msg) => {
+//     io.emit('datachannel', msg);
+// });
+
+Max.addHandler("sendMessageToAll", (padSize) => {
+    const message = JSON.stringify({
+        padSize: padSize // E.g., "400"
+    });
+
+    io.emit('datachannel', message);
+    Max.post(`Sending pad size to all clients: ${padSize}`);
 });
 
 function createServer(){
