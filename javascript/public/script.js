@@ -42,6 +42,9 @@ function makeClient() {
             if (data.padSize) {
                 console.log("Pad size:", data.padSize);
                 updatePadSize(data.padSize);
+            } if (data.speakerX !== undefined && data.speakerY !== undefined && data.speakerPan !== undefined) {
+                console.log("Speaker X: ", data.speakerX, "Y:", data.speakerY, "Pan:", data.speakerPan);
+                addSpeaker(data.speakerX, data.speakerY, data.speakerPan);
             }
         } catch (error) {
             console.log("Received non-JSON message:", msg);
@@ -198,6 +201,36 @@ function stopDrag() {
     circle.style.cursor = 'grab';
 }
 
+// Punta e clicca
+pad.addEventListener("click", function(event) {
+    const rect = pad.getBoundingClientRect();
+    
+    // Calcola la posizione cliccata in termini di percentuale del pad
+    let x = (event.clientX - rect.left) / rect.width;
+    let y = (event.clientY - rect.top) / rect.height;
+
+    // Sposta il cerchio nelle nuove coordinate
+    moveCircle(x, y);
+});
+
+// Funzione per spostare il cerchio nel punta e clicca e aggiornare coordinate e invio
+function moveCircle(x, y) {
+    // Imposta le nuove coordinate del cerchio
+    circle.style.left = `${x * 100}%`;
+    circle.style.top = `${y * 100}%`;
+
+    // Calcola le coordinate normalizzate
+    const rect = pad.getBoundingClientRect();
+    const xNormalized = x; // Le coordinate cliccate sono già normalizzate da 0 a 1
+    const yNormalized = 1 - y; // Cambiamo l'origine per essere in basso a sinistra
+
+    // Aggiorna il display delle coordinate
+    coordinatesDisplay.textContent = `X: ${xNormalized.toFixed(2)}, Y: ${yNormalized.toFixed(2)}`;
+
+    // Invia le coordinate a Max
+    send("coord " + xNormalized + " " + yNormalized);
+}
+
 // Mouse event listeners
 circle.addEventListener('mousedown', startDrag);
 document.addEventListener('mousemove', drag);
@@ -221,4 +254,40 @@ function updateReverb() {
     const reverbValue = reverbSlider.value;
     reverbDisplay.textContent = `R: ${reverbValue}`;
     send("sendrev " + reverbValue);
+}
+
+//speakers////////////////////////////////////////////////////////////////
+
+// Funzione per creare e posizionare i quadrati delle casse
+function addSpeaker(x, y, pan) {
+    const pad = document.getElementById('pad');
+
+    // Crea un nuovo div per il quadrato
+    const speakerDiv = document.createElement('div');
+    speakerDiv.style.position = 'absolute';
+    speakerDiv.style.width = '10px';
+    speakerDiv.style.height = '10px';
+    speakerDiv.style.backgroundColor = 'rgba(99, 99, 99, 0.308)';
+    speakerDiv.style.borderRadius = '2px';
+
+    // Scala le coordinate X, Y per adattarle alle dimensioni del pad
+    const padWidth = pad.clientWidth;
+    const padHeight = pad.clientHeight;
+
+    // Trasformazione delle coordinate da [0, 1] a [0, padWidth/padHeight]
+    const posX = x * padWidth - 5; // Centra il quadrato (offset -5 per 10px di larghezza)
+    const posY = (1 - y) * padHeight - 5; // Y invertito per il canvas
+
+    // Posiziona il quadrato basandosi su x, y
+    speakerDiv.style.left = `${posX}px`;
+    speakerDiv.style.top = `${posY}px`;
+
+    // Applica la rotazione basata sul valore di pan (in gradi)
+    speakerDiv.style.transform = `rotate(${pan}deg)`;
+
+    // Aggiungi il quadrato al pad
+    pad.appendChild(speakerDiv);
+
+    // Log per vedere la rotazione applicata
+    console.log('Pan:', pan, 'X:', x, 'Y:', y);
 }

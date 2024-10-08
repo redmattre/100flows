@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 144.0, 223.0, 771.0, 533.0 ],
+		"rect" : [ 107.0, 171.0, 771.0, 533.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,11 +40,157 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-37",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 393.5, 47.0, 95.0, 20.0 ],
+					"text" : "quanti speaker?"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 419.0, 71.5, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-26",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 377.5, 412.0, 93.0, 22.0 ],
+					"text" : "join @triggers 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 356.5, 310.0, 73.0, 22.0 ],
+					"text" : "r setParams"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 423.5, 344.0, 33.0, 22.0 ],
+					"text" : "read"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-59",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 377.5, 441.0, 176.0, 22.0 ],
+					"text" : "sendMessageToAll $1 $2 $3 $4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-49",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "bang", "int" ],
+					"patching_rect" : [ 356.5, 344.0, 41.0, 22.0 ],
+					"text" : "uzi 12"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-43",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 362.0, 71.5, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-40",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 377.5, 377.0, 79.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"embed" : 0,
+						"precision" : 6
+					}
+,
+					"text" : "coll speakers"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-33",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 0,
+					"patching_rect" : [ 362.0, 110.5, 76.0, 22.0 ],
+					"text" : "speakerPos"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-32",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 264.0, 82.5, 40.0, 20.0 ],
+					"text" : "size"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 264.0, 140.0, 60.0, 22.0 ],
+					"text" : "pack i f f f"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-17",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 298.5, 524.0, 96.0, 22.0 ],
+					"patching_rect" : [ 298.5, 705.5, 96.0, 22.0 ],
 					"text" : "s datas_stanza2"
 				}
 
@@ -55,7 +201,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 144.5, 524.0, 96.0, 22.0 ],
+					"patching_rect" : [ 144.5, 705.5, 96.0, 22.0 ],
 					"text" : "s datas_stanza1"
 				}
 
@@ -67,7 +213,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 428.0, 141.0, 22.0, 22.0 ],
+					"patching_rect" : [ 416.0, 215.0, 22.0, 22.0 ],
 					"text" : "t b"
 				}
 
@@ -79,7 +225,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 428.0, 170.0, 48.0, 22.0 ],
+					"patching_rect" : [ 416.0, 244.0, 48.0, 22.0 ],
 					"text" : "del 500"
 				}
 
@@ -90,7 +236,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 428.0, 199.0, 75.0, 22.0 ],
+					"patching_rect" : [ 416.0, 273.0, 75.0, 22.0 ],
 					"text" : "s setParams"
 				}
 
@@ -102,7 +248,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 339.0, 8.5, 150.0, 87.0 ],
+					"patching_rect" : [ 544.0, 8.5, 150.0, 87.0 ],
 					"text" : "questo sistema va implementato dentro come un rapporto di immagine, così puoi gestirla con i rem, grandezze dinamiche"
 				}
 
@@ -115,7 +261,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 264.0, 76.5, 50.0, 22.0 ]
+					"patching_rect" : [ 264.0, 110.5, 50.0, 22.0 ]
 				}
 
 			}
@@ -127,7 +273,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 116.0, 76.5, 76.0, 102.0 ],
+					"patching_rect" : [ 116.0, 47.0, 76.0, 102.0 ],
 					"text" : ";\rmax launch_browser http://127.0.0.1:7776/?room=stanza2"
 				}
 
@@ -139,7 +285,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1041.0, 228.0, 191.0, 22.0 ],
+					"patching_rect" : [ 1041.0, 224.0, 191.0, 22.0 ],
 					"text" : "sendToRoom stanza2 $1 $2 $3 $4"
 				}
 
@@ -151,7 +297,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 793.0, 228.0, 191.0, 22.0 ],
+					"patching_rect" : [ 793.0, 224.0, 191.0, 22.0 ],
 					"text" : "sendToRoom stanza1 $1 $2 $3 $4"
 				}
 
@@ -172,7 +318,7 @@
 					"numoutlets" : 2,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 793.0, 86.0, 267.0, 122.0 ],
+					"patching_rect" : [ 793.0, 136.0, 267.0, 68.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -184,7 +330,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 445.0, 479.0, 121.0, 22.0 ],
+					"patching_rect" : [ 445.0, 660.5, 121.0, 22.0 ],
 					"text" : "encode4Soundscape"
 				}
 
@@ -197,7 +343,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 328.5, 479.0, 24.0, 24.0 ]
+					"patching_rect" : [ 328.5, 660.5, 24.0, 24.0 ]
 				}
 
 			}
@@ -1582,7 +1728,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 144.5, 479.0, 173.0, 22.0 ],
+					"patching_rect" : [ 144.5, 660.5, 173.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1601,7 +1747,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 571.0, 70.5, 152.0, 382.0 ],
+					"patching_rect" : [ 571.0, 104.5, 152.0, 382.0 ],
 					"text" : "qui bisogna fare un patcher che ha come argomento la voce e quel numero determina a quale oggetto del soundscape chiedere e a quale stanza mandare. Le cose che vengono prese saranno:\n\nTrack Name [string]\nPosition [x, y]\nReverb Send [x]\n\n+ opzionali:\n\nMeter [x] (da rendere meno pesante a livello di quantità di messaggi, magari 5 fps)\n\nqueste vengono chiamate da setParams.\n\nInoltre ci sarà un'abstraction generale all'interno della quale vengono chieste le misure della stanza"
 				}
 
@@ -1711,7 +1857,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 216.5, 283.0, 75.0, 22.0 ],
+					"patching_rect" : [ 216.5, 464.5, 75.0, 22.0 ],
 					"text" : "s setParams"
 				}
 
@@ -1723,7 +1869,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 493.0, 8.5, 150.0, 60.0 ],
+					"patching_rect" : [ 698.0, 8.5, 150.0, 60.0 ],
 					"text" : "con il bang qui mandi la grandezza della stanza e gli specifici nomi, delle specie di loadmess"
 				}
 
@@ -1735,7 +1881,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 264.0, 110.0, 126.0, 22.0 ],
+					"patching_rect" : [ 264.0, 166.0, 126.0, 22.0 ],
 					"text" : "sendMessageToAll $1"
 				}
 
@@ -1756,7 +1902,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 298.5, 353.0, 139.0, 112.0 ],
+					"patching_rect" : [ 298.5, 534.5, 139.0, 112.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -1768,7 +1914,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 254.0, 181.0, 109.0, 22.0 ],
+					"patching_rect" : [ 254.0, 215.0, 109.0, 22.0 ],
 					"text" : "loadmess set 7776"
 				}
 
@@ -1781,7 +1927,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 254.0, 210.5, 50.0, 22.0 ]
+					"patching_rect" : [ 254.0, 244.5, 50.0, 22.0 ]
 				}
 
 			}
@@ -1801,7 +1947,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 144.5, 353.0, 139.0, 112.0 ],
+					"patching_rect" : [ 144.5, 534.5, 139.0, 112.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -2304,7 +2450,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 144.5, 283.0, 58.0, 22.0 ],
+					"patching_rect" : [ 144.5, 464.5, 58.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2324,7 +2470,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 19.0, 76.5, 79.0, 102.0 ],
+					"patching_rect" : [ 19.0, 47.0, 79.0, 102.0 ],
 					"text" : ";\rmax launch_browser http://127.0.0.1:7776/?room=stanza1"
 				}
 
@@ -2337,7 +2483,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 13.5, 248.0, 150.0, 22.0 ],
+					"patching_rect" : [ 13.5, 282.0, 150.0, 22.0 ],
 					"text" : "CidLinkServer @port 7776"
 				}
 
@@ -2350,7 +2496,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 19.0, 38.0, 79.0, 22.0 ],
+					"patching_rect" : [ 19.0, 8.5, 79.0, 22.0 ],
 					"text" : "CidLinkClient"
 				}
 
@@ -2364,7 +2510,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
-					"patching_rect" : [ 152.0, 359.0, 100.0, 100.0 ],
+					"patching_rect" : [ 152.0, 540.5, 100.0, 100.0 ],
 					"pic" : "/Users/pierpaoloovarini/Desktop/Temporaneo/DS100_mobilecontrol/Stanza1.png"
 				}
 
@@ -2378,7 +2524,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
-					"patching_rect" : [ 305.0, 359.0, 100.0, 100.0 ],
+					"patching_rect" : [ 305.0, 540.5, 100.0, 100.0 ],
 					"pic" : "/Users/pierpaoloovarini/Desktop/Temporaneo/DS100_mobilecontrol/Stanza2.png"
 				}
 
@@ -2454,8 +2600,29 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-40", 0 ],
+					"source" : [ "obj-19", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-50", 0 ],
 					"source" : [ "obj-2", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-59", 0 ],
+					"source" : [ "obj-26", 0 ]
 				}
 
 			}
@@ -2470,6 +2637,22 @@
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
 					"source" : [ "obj-30", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-33", 1 ],
+					"order" : 0,
+					"source" : [ "obj-31", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 1 ],
+					"order" : 1,
+					"source" : [ "obj-31", 0 ]
 				}
 
 			}
@@ -2496,8 +2679,38 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
+					"destination" : [ "obj-26", 0 ],
+					"order" : 0,
 					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"order" : 1,
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-26", 1 ],
+					"source" : [ "obj-40", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-33", 0 ],
+					"source" : [ "obj-43", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-40", 0 ],
+					"source" : [ "obj-49", 2 ]
 				}
 
 			}
@@ -2559,6 +2772,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-59", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-16", 0 ],
 					"order" : 0,
 					"source" : [ "obj-6", 0 ]
@@ -2578,6 +2798,13 @@
 					"destination" : [ "obj-56", 0 ],
 					"order" : 1,
 					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"source" : [ "obj-7", 0 ]
 				}
 
 			}
@@ -2718,9 +2945,23 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "oktofonie",
+				"bootpath" : "~/Desktop/Temporaneo/DS100_mobilecontrol/dev/100flows/javascript",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "resize_n4m_monitor_patcher.js",
 				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "speakerPos.maxpat",
+				"bootpath" : "~/Desktop/Temporaneo/DS100_mobilecontrol/dev/100flows/javascript",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ],

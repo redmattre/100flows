@@ -23,7 +23,25 @@ Giorno2 (2h)
 - sistemato bug relativo alle directories
 - sistemato il bug dello scaling coordinate
 
+Giorno3 (2h)
+
+- messaggi entrata uscita server e client (sisema complesso socket.io)
+- creazione sistema a più pagine con QR generati da script
+- risoluzione di bug
+- aggiunta ascolto binaurale
+
+Giorno4 (2h)
+
+- sistema OSC riconoscimento speaker (completare gli strip dati una volta la)
+- sistemata l'idea della grandezza di azione (fai uno scale che si può cambiare in base a spekaer più lontano)
+- aggiunto point and click sulla GUI
+
+
 Cose da fare :
 
-- sistema di pagine dedicate e QR (che si crea in automatico)
-- fare che la pagina si adatta alle cose del progetto (segnate nel quaderno)
+- smoothare i valori
+- capire come generare in automatico i QR da dentro max con shell
+
+- mettere qualche schermata di caricamento
+- fare sistema di mandare e ricevere OSC
+- ricordati che le cose devono essere cross-platform (anche gli external e gli script)
