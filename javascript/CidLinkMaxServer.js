@@ -119,7 +119,7 @@ Max.addHandler("sendToRoom", (roomName, trackName, x, y, sliderValue) => {
 
 Max.addHandler("sendMessageToAll", (padSize, speakerX, speakerY, speakerPan) => {
     const message = JSON.stringify({
-        padSize: padSize, // E.g., "400"
+        padSize: padSize,
         speakerX: speakerX,
         speakerY: speakerY,
         speakerPan: speakerPan
