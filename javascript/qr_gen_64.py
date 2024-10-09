@@ -4,6 +4,9 @@ import os
 # Ottieni il percorso della cartella corrente dove si trova lo script
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Chiedi all'utente di inserire l'indirizzo IP
+ip_address = input("Enter the IP address (e.g., 192.168.1.10): ")
+
 # Chiedi all'utente di inserire la porta del localhost
 port = input("Enter the localhost port: ")
 
@@ -13,7 +16,7 @@ size = 100
 # Ciclo per generare 64 QR codes
 for i in range(1, 65):
     # Crea l'URL per ogni stanza
-    url = f"http://127.0.0.1:{port}/?room=stanza{i}"
+    url = f"http://{ip_address}:{port}/?room=stanza{i}"
     
     # Crea il nome del file per ogni QR code
     file_name = f"qr_code_stanza_{i}.png"

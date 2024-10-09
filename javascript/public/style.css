@@ -1,12 +1,14 @@
 :root {
-  --uiwidth: 19rem;
-  --uiheigth: 19rem;
+  --pad-size: 80vw; /* The pad is 90% of the viewport width */
+  --circle-size: 2.5rem; /* Size of the circle */
+  --thumb-size: 2rem; /* Size of the circle */
+  --slider-height: 1rem; /* Height of the slider */
 }
 
-body {
+body, html {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,40 +17,48 @@ body {
   overflow: hidden;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+
 .trackname {
-  position: absolute;
-  top: 100px;
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
+  text-align: center;
+  margin-bottom: auto;
+  /* Posiziona la trackname a metà tra il top e il pad */
+  position: relative;
+  top: calc((100vh - var(--pad-size)) / 4); /* Sposta in basso metà dello spazio */
 }
 
-.coordinates {
-  position: absolute;
-  top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.reverb {
-  position: absolute;
-  top: 50px;
-  font-size: 18px;
-  font-weight: bold;
+.pad-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .pad {
   position: relative;
-  width: var(--uiwidth);
-  height: var(--uiheigth);
+  width: var(--pad-size);
+  height: var(--pad-size);
   background-color: #ddd;
   border: 2px solid #333;
 }
 
 .circle {
   position: absolute;
-  width: var(--testaslider);
-  height: var(--testaslider);
+  width: var(--circle-size);
+  height: var(--circle-size);
   background-color: #ff5722;
   border-radius: 50%;
   cursor: grab;
@@ -57,22 +67,19 @@ body {
   transform: translate(-50%, -50%);
 }
 
-:root {
-  --testaslider: 3rem;
-  --spessoreslider: 1rem;
-}
-
-.slider-container{
-  width: var(--uiwidth);
-  position: absolute;
-  bottom: 4rem;
+.slider-container {
+  width: var(--pad-size);
+  margin-top: auto;
+  /* Posiziona lo slider a metà tra il pad e il bottom */
+  position: relative;
+  bottom: calc((100vh - var(--pad-size)) / 4); /* Sposta in alto metà dello spazio */
 }
 
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
   width: 100%; /* Full-width */
-  height: var(--spessoreslider); /* Specified height */
+  height: var(--slider-height); /* Specified height */
   background: #d3d3d3; /* Grey background */
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
@@ -81,18 +88,17 @@ body {
 }
 
 .slider::-webkit-slider-thumb {
-  /* -webkit-appearance: none; Override default look */
-  /* appearance: none; */
   border-radius: 50%;
-  width: var(--testaslider); /* Set a specific slider handle width */
-  height: var(--testaslider); /* Slider handle height */
+  width: var(--thumb-size); /* Set a specific slider handle width */
+  height: var(--thumb-size); /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
+  background-color: aquamarine;
 }
 
 .slider::-moz-range-thumb {
   border-radius: 50%;
-  width: var(--testaslider); /* Set a specific slider handle width */
-  height: var(--testaslider); /* Slider handle height */
+  width: var(--thumb-size); /* Set a specific slider handle width */
+  height: var(--thumb-size); /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
+  background-color: aquamarine;
 }
-

@@ -7,6 +7,7 @@ let password = "";
 // Funzione per ottenere i parametri dell'URL (es. ?room=stanza1)
 function getRoomFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
+  console.log("IOOOOOO", urlParams.get('room'));
   return urlParams.get('room') || 'testRoom';  // Se non è specificato, metti una stanza predefinita
 }
 
@@ -28,9 +29,16 @@ function makeClient() {
             // Log per verificare i dati ricevuti
             console.log("Messaggio ricevuto:", data);
     
-            // Aggiorna il trackName
-            updateMessage(data.track);
-    
+            // Aggiorna il trackName se c'è
+            if (data.track) {
+                updateMessage(data.track);
+            }
+
+            //aggiorna i total speaker
+            if (data.speakerNumber) {
+                totalSpeakers = data.speakerNumber;
+            }
+            
             // Verifica se i dati delle coordinate e dello slider sono presenti
             if (data.circleX !== undefined && data.circleY !== undefined && data.slider !== undefined) {
                 console.log(`Coords: X: ${data.circleX}, Y: ${data.circleY}, Slider: ${data.slider}`);
@@ -127,7 +135,7 @@ ioClient.on('datachannel', (msg) => {
 
 const circle = document.getElementById('circle');
 const pad = document.querySelector('.pad');
-const coordinatesDisplay = document.getElementById('coordinates');
+// const coordinatesDisplay = document.getElementById('coordinates');
 let isDragging = false;
 let offsetX, offsetY;
 
@@ -187,7 +195,7 @@ function drag(e) {
 
     // Update coordinates (X, Y relative to the center of the pad)
     // coordinatesDisplay.textContent = `X: ${Math.round(x + circleRadius)} Y: ${Math.round(y + circleRadius)}`;
-    coordinatesDisplay.textContent = `X: ${xNormalized.toFixed(2)}, Y: ${yNormalized.toFixed(2)}`;
+    // coordinatesDisplay.textContent = `X: ${xNormalized.toFixed(2)}, Y: ${yNormalized.toFixed(2)}`;
 
 
     //send the coordinates to max 
@@ -225,7 +233,7 @@ function moveCircle(x, y) {
     const yNormalized = 1 - y; // Cambiamo l'origine per essere in basso a sinistra
 
     // Aggiorna il display delle coordinate
-    coordinatesDisplay.textContent = `X: ${xNormalized.toFixed(2)}, Y: ${yNormalized.toFixed(2)}`;
+    // coordinatesDisplay.textContent = `X: ${xNormalized.toFixed(2)}, Y: ${yNormalized.toFixed(2)}`;
 
     // Invia le coordinate a Max
     send("coord " + xNormalized + " " + yNormalized);
@@ -252,18 +260,39 @@ reverbSlider.addEventListener('input', updateReverb);
 // Function to update the reverb value
 function updateReverb() {
     const reverbValue = reverbSlider.value;
-    reverbDisplay.textContent = `R: ${reverbValue}`;
+    // reverbDisplay.textContent = `R: ${reverbValue}`;
     send("sendrev " + reverbValue);
 }
 
 //speakers////////////////////////////////////////////////////////////////
 
+let totalSpeakers = 0; // Variabile globale per il numero totale di speaker da disegnare
+let currentSpeakerCount = 0; // Conta quanti speaker sono stati disegnati nella chiamata attuale
+
+// Funzione per impostare il numero totale di speaker
+function setTotalSpeakers(count) {
+    totalSpeakers = count;
+    currentSpeakerCount = 0; // Resetta il conteggio attuale
+}
+
+// Funzione per rimuovere tutti i vecchi speaker
+function clearSpeakers() {
+    const speakers = document.querySelectorAll('.speaker');
+    speakers.forEach(speaker => speaker.remove());
+}
+
 // Funzione per creare e posizionare i quadrati delle casse
 function addSpeaker(x, y, pan) {
+    // Cancella gli speaker solo la prima volta che la funzione viene chiamata nel nuovo ciclo
+    if (currentSpeakerCount === 0) {
+        clearSpeakers(); // Cancella gli speaker esistenti
+    }
+
     const pad = document.getElementById('pad');
 
     // Crea un nuovo div per il quadrato
     const speakerDiv = document.createElement('div');
+    speakerDiv.classList.add('speaker');
     speakerDiv.style.position = 'absolute';
     speakerDiv.style.width = '10px';
     speakerDiv.style.height = '10px';
@@ -274,9 +303,8 @@ function addSpeaker(x, y, pan) {
     const padWidth = pad.clientWidth;
     const padHeight = pad.clientHeight;
 
-    // Trasformazione delle coordinate da [0, 1] a [0, padWidth/padHeight]
-    const posX = x * padWidth - 5; // Centra il quadrato (offset -5 per 10px di larghezza)
-    const posY = (1 - y) * padHeight - 5; // Y invertito per il canvas
+    const posX = x * padWidth - 5; // Centra il quadrato
+    const posY = (1 - y) * padHeight - 5; // Inverti l'asse Y
 
     // Posiziona il quadrato basandosi su x, y
     speakerDiv.style.left = `${posX}px`;
@@ -288,6 +316,14 @@ function addSpeaker(x, y, pan) {
     // Aggiungi il quadrato al pad
     pad.appendChild(speakerDiv);
 
-    // Log per vedere la rotazione applicata
-    console.log('Pan:', pan, 'X:', x, 'Y:', y);
+    // Incrementa il conteggio degli speaker disegnati
+    currentSpeakerCount++;
+
+    // Se abbiamo disegnato tutti gli speaker attesi, resettare il conteggio
+    if (currentSpeakerCount === totalSpeakers) {
+        currentSpeakerCount = 0; // Resetta il contatore per il prossimo ciclo
+    }
+
+    console.log("current speaker COUNT: ", currentSpeakerCount);
+    console.log("total Speakers: ", totalSpeakers);
 }

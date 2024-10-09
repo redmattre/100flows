@@ -117,12 +117,13 @@ Max.addHandler("sendToRoom", (roomName, trackName, x, y, sliderValue) => {
 //     io.emit('datachannel', msg);
 // });
 
-Max.addHandler("sendMessageToAll", (padSize, speakerX, speakerY, speakerPan) => {
+Max.addHandler("sendMessageToAll", (padSize, speakerX, speakerY, speakerPan, speakerNumber) => {
     const message = JSON.stringify({
         padSize: padSize,
         speakerX: speakerX,
         speakerY: speakerY,
-        speakerPan: speakerPan
+        speakerPan: speakerPan,
+        speakerNumber: speakerNumber
     });
 
     io.emit('datachannel', message);

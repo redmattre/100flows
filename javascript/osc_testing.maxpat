@@ -3,7 +3,7 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
+			"minor" : 6,
 			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
@@ -41,13 +41,13 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-29",
-					"linecount" : 6,
+					"linecount" : 7,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 437.0, 414.0, 50.0, 89.0 ],
-					"text" : "/dbaudio1/matrixinput/channelname/1 guitar"
+					"patching_rect" : [ 437.0, 414.0, 56.0, 102.0 ],
+					"text" : "/dbaudio1/positioning/speaker_position/26 0. 0. 0. 0. 0. 0."
 				}
 
 			}
@@ -106,13 +106,14 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 251.0, 268.0, 24.0, 24.0 ]
+					"patching_rect" : [ 244.0, 280.0, 24.0, 24.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 1.0, 1.0, 0, -0.695 ],
+					"classic_curve" : 1,
 					"clickadd" : 0,
 					"clickmove" : 0,
 					"domain" : 1.0,
@@ -212,103 +213,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 244.0, 321.0, 126.0, 22.0 ],
-					"text" : "qmetro 100 @active 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-16",
-					"maxclass" : "toggle",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 456.0, 153.0, 24.0, 24.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-12",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 456.0, 264.0, 34.0, 22.0 ],
-					"text" : "*~ 1."
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-8",
-					"maxclass" : "gain~",
-					"multichannelvariant" : 0,
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "signal", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 456.0, 225.0, 150.0, 29.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"basictuning" : 440,
-					"data" : 					{
-						"clips" : [ 							{
-								"absolutepath" : "drumLoop.aif",
-								"filename" : "drumLoop.aif",
-								"filekind" : "audiofile",
-								"id" : "u225001152",
-								"loop" : 1,
-								"content_state" : 								{
-									"loop" : 1
-								}
-
-							}
- ]
-					}
-,
-					"followglobaltempo" : 0,
-					"formantcorrection" : 0,
-					"id" : "obj-7",
-					"maxclass" : "playlist~",
-					"mode" : "basic",
-					"numinlets" : 1,
-					"numoutlets" : 5,
-					"originallength" : [ 0.0, "ticks" ],
-					"originaltempo" : 120.0,
-					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 456.0, 187.0, 150.0, 30.0 ],
-					"pitchcorrection" : 0,
-					"quality" : "basic",
-					"timestretch" : [ 0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-2",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 456.0, 295.0, 45.0, 22.0 ],
-					"text" : "dac~ 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-36",
-					"linecount" : 16,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1137.0, 29.0, 155.0, 221.0 ],
-					"text" : "la grandezza della zona è irrilevante in realtà. La zona serve solamente per riverberi e gestioni. Piuttosto la scala la da la grandezza e la posizione degli altoparlanti in effetti.\n\nQuindi la decisione è iniziale e si può tenere una roba sempre quadrata in realtà come pad di spostamento, semplicemente ci vanno disegnati dentro gli altoparlanti."
+					"text" : "qmetro 100 @active 0"
 				}
 
 			}
@@ -322,18 +227,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 783.0, 176.0, 286.0, 22.0 ],
 					"text" : "sprintf /dbaudio1/matrixinput/reverbsendgain/%ld %f"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-25",
-					"linecount" : 3,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 653.0, 39.0, 150.0, 47.0 ],
-					"text" : "se mandi i messaggi senza valori ti danno in risposta il valore"
 				}
 
 			}
@@ -384,18 +277,6 @@
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 99.0, 65.0, 50.0, 22.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-3",
-					"linecount" : 11,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 362.0, 7.0, 287.0, 154.0 ],
-					"text" : "andrebbe provato da utilizzare questo altro messaggio che sembra utilizzi le coordinate relative.. e questa sarebbe una gran cosa, invece di usare i metri, perchè mi risparmierebbe di sapere qual è la zona e fare lo scaling prima.\n\nin pratica lo scaling è relativo alla mapping area 1 in questo caso. Forse è una cosa quel numero che va cambiata se possibile\n\nforse devi o puoi defnire tu lo scaling"
 				}
 
 			}
@@ -482,7 +363,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -777,6 +658,7 @@
 							"parameter_enum" : [ "val1", "val2" ],
 							"parameter_longname" : "live.text[4]",
 							"parameter_mmax" : 1,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "live.text[1]",
 							"parameter_type" : 2
 						}
@@ -816,6 +698,7 @@
 							"parameter_enum" : [ "val1", "val2" ],
 							"parameter_longname" : "live.text[2]",
 							"parameter_mmax" : 1,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "live.text[1]",
 							"parameter_type" : 2
 						}
@@ -844,13 +727,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
-					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-80", 1 ],
 					"source" : [ "obj-13", 0 ]
 				}
@@ -867,13 +743,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
 					"source" : [ "obj-15", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-7", 0 ],
-					"source" : [ "obj-16", 0 ]
 				}
 
 			}
@@ -1005,20 +874,6 @@
 					"destination" : [ "obj-32", 0 ],
 					"midpoints" : [ 133.5, 389.5, 39.5, 389.5 ],
 					"source" : [ "obj-68", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"source" : [ "obj-7", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
-					"source" : [ "obj-8", 0 ]
 				}
 
 			}
