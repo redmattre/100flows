@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 11,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 315.0, 85.0, 904.0, 423.0 ],
+		"rect" : [ 192.0, 97.0, 904.0, 423.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,55 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 471.0, 87.0, 65.0, 22.0 ],
+					"text" : "script stop"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "bang" ],
+					"patching_rect" : [ 531.0, 52.0, 29.5, 22.0 ],
+					"text" : "t i b"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 544.0, 87.0, 81.0, 22.0 ],
+					"text" : "script start $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "different port",
+					"id" : "obj-4",
+					"index" : 2,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 531.0, 11.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
@@ -154,7 +203,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 109.0, 293.0, 207.5, 34.0 ],
+					"patching_rect" : [ 109.0, 293.0, 207.5, 33.0 ],
 					"text" : "Use @autostart 1 when your script should start once you open the patch"
 				}
 
@@ -168,18 +217,6 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 332.0, 305.0, 79.0, 22.0 ],
 					"text" : "route running"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bubble" : 1,
-					"id" : "obj-5",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 386.5, 43.0, 117.0, 24.0 ],
-					"text" : "Reveal the script"
 				}
 
 			}
@@ -204,13 +241,14 @@
 					"enablevscroll" : 0,
 					"id" : "obj-6",
 					"lockeddragscroll" : 0,
+					"lockedsize" : 0,
 					"maxclass" : "bpatcher",
 					"name" : "n4m.monitor.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 487.5, 123.0, 400.0, 220.0 ],
+					"patching_rect" : [ 487.5, 125.0, 400.0, 220.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 877.0, 182.5, 400.0, 220.0 ],
 					"viewvisibility" : 1
@@ -224,7 +262,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 123.5, 105.5, 150.0, 34.0 ],
+					"patching_rect" : [ 123.5, 105.5, 150.0, 33.0 ],
 					"text" : "The whole family of script control messages"
 				}
 
@@ -299,7 +337,7 @@
 					"patching_rect" : [ 102.0, 38.5, 81.0, 22.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 877.0, 134.5, 67.0, 36.0 ],
+					"presentation_rect" : [ 877.0, 134.5, 67.0, 35.0 ],
 					"text" : "script start $1"
 				}
 
@@ -314,7 +352,7 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 102.0, 264.0, 378.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"args" : [ 5000 ],
+						"args" : [ 7776 ],
 						"autostart" : 1,
 						"defer" : 0,
 						"node_bin_path" : "",
@@ -322,7 +360,7 @@
 						"watch" : 1
 					}
 ,
-					"text" : "node.script CidLinkMaxServer.js @autostart 1 @watch 1 @args 5000"
+					"text" : "node.script CidLinkMaxServer.js @autostart 1 @watch 1 @args 7776"
 				}
 
 			}
@@ -370,6 +408,36 @@
 				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
 					"source" : [ "obj-13", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"midpoints" : [ 553.5, 111.0, 285.0, 111.0, 285.0, 90.0, 108.0, 90.0, 108.0, 258.0, 111.5, 258.0 ],
+					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-15", 0 ],
+					"source" : [ "obj-18", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"source" : [ "obj-18", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"midpoints" : [ 480.5, 111.0, 285.0, 111.0, 285.0, 90.0, 108.0, 90.0, 108.0, 258.0, 111.5, 258.0 ],
+					"source" : [ "obj-19", 0 ]
 				}
 
 			}
@@ -439,6 +507,13 @@
 					"destination" : [ "obj-10", 0 ],
 					"midpoints" : [ 133.0, 169.0, 111.5, 169.0 ],
 					"source" : [ "obj-39", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"source" : [ "obj-4", 0 ]
 				}
 
 			}

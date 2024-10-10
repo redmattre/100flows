@@ -2803,8 +2803,8 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "CidLinkClient.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/i-3bologna/patchers",
-				"patcherrelativepath" : "../../../../../../Documents/Max 8/Packages/i-3bologna/patchers",
+				"bootpath" : "~/Desktop/Temporaneo/DS100_mobilecontrol/dev/100flows/javascript",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -2824,8 +2824,8 @@
 			}
 , 			{
 				"name" : "CidLinkServer.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/i-3bologna/patchers",
-				"patcherrelativepath" : "../../../../../../Documents/Max 8/Packages/i-3bologna/patchers",
+				"bootpath" : "~/Desktop/Temporaneo/DS100_mobilecontrol/dev/100flows/javascript",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
