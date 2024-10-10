@@ -70,6 +70,29 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('metering', (room, data) => {
+        const requestedRoom = rooms.findRoomByName(room);
+        // Se l'utente è autorizzato a inviare dati nella stanza
+        if (requestedRoom != null) {
+            if (requestedRoom.allowedList.indexOf(socket.id) !== -1) {
+                // Inviare il messaggio agli altri client nella stanza
+                socket.to(room).emit('datachannel', data);
+    
+                // Formattare il messaggio con il nome della stanza
+                const messageForMax = `${room}: ${data}`;
+    
+                // Inviare il messaggio formattato a Max
+                Max.outlet(messageForMax);
+    
+                console.log(`cmd ${socket.id} ${messageForMax}`);
+            } else {
+                socket.emit('systemchannel', 'Wrong Password');
+            }
+        } else {
+            socket.emit('systemchannel', 'You are not connected to a room');
+        }
+    });
+
 
     socket.on('objchannel', (room, data) => {
         const requestedRoom = rooms.findRoomByName(room)
@@ -110,7 +133,7 @@ Max.addHandler("sendToRoom", (roomName, trackName, x, y, sliderValue) => {
     });
 
     io.to(roomName).emit('datachannel', message);
-    Max.post(`Sending to room: ${roomName}, x: ${x}, y: ${y}, slider: ${sliderValue}`);
+    // Max.post(`Sending to room: ${roomName}, x: ${x}, y: ${y}, slider: ${sliderValue}`);
 });
 
 // Max.addHandler("sendMessageToAll", (msg) => {
@@ -128,6 +151,14 @@ Max.addHandler("sendMessageToAll", (padSize, speakerX, speakerY, speakerPan, spe
 
     io.emit('datachannel', message);
     Max.post(`Sending pad size to all clients: ${padSize}`);
+});
+
+Max.addHandler ("setMeter", (roomName, meterVal) => {
+    const message = JSON.stringify({
+        meterVal: meterVal
+    })
+
+    io.to(roomName).emit('metering', message);
 });
 
 function createServer(){

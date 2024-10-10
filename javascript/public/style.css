@@ -11,6 +11,7 @@
   --whiteish: #d2bebed7;
   --whiteino: #93888862;
   --brightorange: #ff5d22;
+  --dbyellow: #ffdb59;
   --yellow: #ff5722;
   --green: #1dad18;
 }
@@ -77,6 +78,7 @@ body, html {
   background-color: var(--blackish);
   border: 2px solid var(--blackino);
   border-radius: 2.5%;
+  overflow: hidden;
 
   /* box-shadow: 
 inset 0 0 15px 5px var(--blackino); */
@@ -86,9 +88,10 @@ inset 0 0 15px 5px var(--blackino); */
   position: absolute;
   width: var(--circle-size);
   height: var(--circle-size);
-  background-color: var(--yellow);
+  /* background-color: var(--yellow); */
+  background-color: var(--dbyellow);
   border-radius: 50%;
-  border: 2px solid var(--brightorange);
+  /* border: 2px solid var(--brightorange); */
   cursor: grab;
   top: 50%;
   left: 50%;
@@ -97,9 +100,7 @@ inset 0 0 15px 5px var(--blackino); */
   opacity: 0.8;
   transition: opacity .2s;
   
-  /* box-shadow: 
-    inset 0 0 15px 10px var(--yellow), 
-    0 0 15px 5px var(--whiteino);  */
+  box-shadow: 0 0 15px 5px var(--whiteino);
 }
 
 .circle:hover {
@@ -118,7 +119,7 @@ inset 0 0 15px 5px var(--blackino); */
   appearance: none;           /* Rimuove gli stili di default per altri browser */
   width: 100%;
   height: var(--slider-height); /* Altezza del range */
-  /* background: rgba(255, 255, 255, 0.5); */
+  background: var(--blackish);
   border-radius: 25px;         /* Arrotonda i bordi della barra */
   outline: none;              /* Rimuove il contorno */
   opacity: 0.6;
@@ -137,8 +138,8 @@ inset 0 0 15px 5px var(--blackino); */
   height: var(--thumb-size);  /* Altezza del thumb */
   background-color: var(--white);    /* Colore del pallino (thumb) bianco */
   border-radius: 50%;         /* Pallino perfettamente tondo */
-  cursor: pointer;            /* Mostra il puntatore quando si passa sopra */
-  border: 2px solid rgba(255, 255, 255, 0.7); /* Leggero bordo bianco per visibilità */
+  cursor: grab;            /* Mostra il puntatore quando si passa sopra */
+  border: 2px solid var(--blackino); /* Leggero bordo bianco per visibilità */
   /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
 }
 
@@ -148,7 +149,7 @@ inset 0 0 15px 5px var(--blackino); */
   height: var(--thumb-size);
   background-color: var(--white);
   border-radius: 50%;
-  cursor: pointer;
+  cursor: grab;
   border: 2px solid var(--whiteish);
   /* box-shadow: 0 0 5px var(--whiteino); */
 }
@@ -157,15 +158,25 @@ inset 0 0 15px 5px var(--blackino); */
 .slider::-webkit-slider-runnable-track {
   width: 100%;
   height: var(--slider-height);
-  background: var(--blackino); /* Meno bianco per il range */
-  border: 2px var(--whiteino);
+  background: var(--blackish); /* Meno bianco per il range */
+  border: 2px solid var(--blackino);
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .slider::-moz-range-track {
   width: 100%;
   height: var(--slider-height);
-  background: var(--blackino);
-  border: 2px var(--whiteino);
+  background: var(--blackish);
+  border: 2px solid var(--blackino);
   border-radius: 25px;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:active {
+  cursor: grabbing;           /* Cambia il cursore in grabbing quando si clicca */
+}
+
+.slider::-moz-range-thumb:active {
+  cursor: grabbing;           /* Cambia il cursore in grabbing quando si clicca */
 }

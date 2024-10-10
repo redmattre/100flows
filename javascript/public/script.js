@@ -27,8 +27,21 @@ function makeClient() {
             const data = JSON.parse(msg);
             
             // Log per verificare i dati ricevuti
-            console.log("Messaggio ricevuto:", data);
+            // console.log("Messaggio ricevuto:", data);
     
+            //prendi il messaggio per stanza che si prende il metering
+
+            if (data.meterVal) {
+                // Seleziona il div con la classe 'circle'
+                const circle = document.querySelector('.circle');
+                
+                // Scala il valore di opacità della box-shadow in base a data.meterVal (0 a 1)
+                const scaledOpacity = Math.min(Math.max(data.meterVal, 0), 1); // Assicura che il valore sia tra 0 e 1
+                
+                // Modifica la box-shadow con il colore verde e opacità scalata
+                circle.style.boxShadow = `0 0 15px 5px rgba(29, 173, 24, ${scaledOpacity})`;
+            }
+
             // Aggiorna il trackName se c'è
             if (data.track) {
                 updateMessage(data.track);
@@ -54,6 +67,31 @@ function makeClient() {
                 console.log("Speaker X: ", data.speakerX, "Y:", data.speakerY, "Pan:", data.speakerPan);
                 addSpeaker(data.speakerX, data.speakerY, data.speakerPan);
             }
+        } catch (error) {
+            console.log("Received non-JSON message:", msg);
+        }
+    });
+
+    ioClient.on('metering', (msg) => {
+        try {
+            const data = JSON.parse(msg);
+            
+            // Log per verificare i dati ricevuti
+            // console.log("Messaggio ricevuto:", data);
+    
+            //prendi il messaggio per stanza che si prende il metering
+
+            if (data.meterVal) {
+                // Seleziona il div con la classe 'circle'
+                const circle = document.querySelector('.circle');
+                
+                // Scala il valore di opacità della box-shadow in base a data.meterVal (0 a 1)
+                const scaledOpacity = Math.min(Math.max(data.meterVal, 0), 1); // Assicura che il valore sia tra 0 e 1
+                
+                // Modifica la box-shadow con il colore verde e opacità scalata
+                circle.style.boxShadow = `0 0 15px 5px rgba(29, 173, 24, ${scaledOpacity})`;
+            }
+
         } catch (error) {
             console.log("Received non-JSON message:", msg);
         }

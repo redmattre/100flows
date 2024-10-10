@@ -5,7 +5,7 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Chiedi all'utente di inserire l'indirizzo IP
-ip_address = input("Enter the IP address (e.g., 192.168.1.10): ")
+ip_address = input("Enter the IP address of your computer in the LAN network: ")
 
 # Chiedi all'utente di inserire la porta del localhost
 port = input("Enter the localhost port: ")

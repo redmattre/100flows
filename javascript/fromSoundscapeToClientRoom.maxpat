@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 104.0, 116.0, 278.0, 415.0 ],
+		"rect" : [ 104.0, 116.0, 375.0, 442.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -83,7 +83,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 144.5, 83.0, 87.0, 100.0 ],
+					"patching_rect" : [ 154.0, 86.0, 87.0, 100.0 ],
 					"text" : "questo ci dice in base a quale pagina viene caricata le sue caratteristiche attuali"
 				}
 

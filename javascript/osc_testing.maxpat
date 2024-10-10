@@ -40,13 +40,35 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-33",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 292.0, 413.0, 95.0, 22.0 ],
+					"text" : "s ---param_ToIP"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 451.0, 267.0, 75.0, 22.0 ],
+					"text" : "s ---toServer"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-29",
 					"linecount" : 7,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 437.0, 414.0, 56.0, 102.0 ],
+					"patching_rect" : [ 437.0, 414.0, 57.0, 102.0 ],
 					"text" : "/dbaudio1/positioning/speaker_position/26 0. 0. 0. 0. 0. 0."
 				}
 
