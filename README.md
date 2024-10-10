@@ -44,7 +44,7 @@ These instructions explain how to create a local network that allows users to co
 
 The router and the Soundscape must be on different IP addresses to prevent connection conflicts between Max MSP and the Soundscape system.
 
-5. Clients must connect using the IP and port you’ve set up. For example, if the port is `7776`, the address will be `192.168.1.2:7776`, and users must append the room variable `/ ?room=stanza[n]` to access the correct room.
+5. Clients must connect using the IP and port you’ve set up. For example, if the port is `7776`, the address will be `192.168.1.2:7776`, and users must append the room variable `/?room=stanza[n]` to access the correct room.
 6. If the “connecting…” message disappears and the track name appears, the connection is successful, and the Soundscape system should be receiving data.
 
 ### Example:
