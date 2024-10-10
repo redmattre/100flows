@@ -2,7 +2,29 @@
   --pad-size: 80vw; /* The pad is 90% of the viewport width */
   --circle-size: 2.5rem; /* Size of the circle */
   --thumb-size: 2rem; /* Size of the circle */
-  --slider-height: 1rem; /* Height of the slider */
+  --slider-height: 2rem; /* Height of the slider */
+
+  --black: #1f1f1f;
+  --blackish: #2e2e2e;
+  --blackino: #333;
+  --white: #fff6f6;
+  --whiteish: #d2bebed7;
+  --whiteino: #93888862;
+  --brightorange: #ff5d22;
+  --yellow: #ff5722;
+  --green: #1dad18;
+}
+
+/* Impostazione per dispositivi desktop */
+:root {
+  --distance-factor: 8;
+}
+
+@media (max-width: 768px) {
+  /* Impostazione per dispositivi mobili */
+  :root {
+    --distance-factor: 6;
+  }
 }
 
 body, html {
@@ -13,7 +35,7 @@ body, html {
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: var(--black);
   overflow: hidden;
 }
 
@@ -34,9 +56,10 @@ body, html {
   font-style: italic;
   text-align: center;
   margin-bottom: auto;
+  color: var(--whiteish);
   /* Posiziona la trackname a metà tra il top e il pad */
   position: relative;
-  top: calc((100vh - var(--pad-size)) / 4); /* Sposta in basso metà dello spazio */
+  top: calc((100vh - var(--pad-size)) / var(--distance-factor));
 }
 
 .pad-container {
@@ -51,54 +74,98 @@ body, html {
   position: relative;
   width: var(--pad-size);
   height: var(--pad-size);
-  background-color: #ddd;
-  border: 2px solid #333;
+  background-color: var(--blackish);
+  border: 2px solid var(--blackino);
+  border-radius: 2.5%;
+
+  /* box-shadow: 
+inset 0 0 15px 5px var(--blackino); */
 }
 
 .circle {
   position: absolute;
   width: var(--circle-size);
   height: var(--circle-size);
-  background-color: #ff5722;
+  background-color: var(--yellow);
   border-radius: 50%;
+  border: 2px solid var(--brightorange);
   cursor: grab;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
+  opacity: 0.8;
+  transition: opacity .2s;
+  
+  /* box-shadow: 
+    inset 0 0 15px 10px var(--yellow), 
+    0 0 15px 5px var(--whiteino);  */
+}
+
+.circle:hover {
+  opacity: 0.99;
 }
 
 .slider-container {
   width: var(--pad-size);
   margin-top: auto;
-  /* Posiziona lo slider a metà tra il pad e il bottom */
   position: relative;
-  bottom: calc((100vh - var(--pad-size)) / 4); /* Sposta in alto metà dello spazio */
+  bottom: calc((100vh - var(--pad-size)) / var(--distance-factor)); /* Posiziona lo slider a metà tra il pad e il bottom */
 }
 
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: var(--slider-height); /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+  -webkit-appearance: none;  /* Rimuove gli stili di default per i browser WebKit */
+  appearance: none;           /* Rimuove gli stili di default per altri browser */
+  width: 100%;
+  height: var(--slider-height); /* Altezza del range */
+  /* background: rgba(255, 255, 255, 0.5); */
+  border-radius: 25px;         /* Arrotonda i bordi della barra */
+  outline: none;              /* Rimuove il contorno */
+  opacity: 0.6;
+  transition: opacity .2s;    /* Transizione dell'opacità */
 }
 
+.slider:hover {
+  opacity: 0.7; /* Leggera modifica dell'opacità quando l'utente passa sopra lo slider */
+}
+
+/* Stile del pallino (thumb) per WebKit (Chrome, Safari, Edge) */
 .slider::-webkit-slider-thumb {
-  border-radius: 50%;
-  width: var(--thumb-size); /* Set a specific slider handle width */
-  height: var(--thumb-size); /* Slider handle height */
-  cursor: pointer; /* Cursor on hover */
-  background-color: aquamarine;
+  -webkit-appearance: none;   /* Override dello stile di default */
+  appearance: none;
+  width: var(--thumb-size);   /* Larghezza del thumb */
+  height: var(--thumb-size);  /* Altezza del thumb */
+  background-color: var(--white);    /* Colore del pallino (thumb) bianco */
+  border-radius: 50%;         /* Pallino perfettamente tondo */
+  cursor: pointer;            /* Mostra il puntatore quando si passa sopra */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Leggero bordo bianco per visibilità */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
 }
 
+/* Stile del pallino (thumb) per Firefox */
 .slider::-moz-range-thumb {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background-color: var(--white);
   border-radius: 50%;
-  width: var(--thumb-size); /* Set a specific slider handle width */
-  height: var(--thumb-size); /* Slider handle height */
-  cursor: pointer; /* Cursor on hover */
-  background-color: aquamarine;
+  cursor: pointer;
+  border: 2px solid var(--whiteish);
+  /* box-shadow: 0 0 5px var(--whiteino); */
+}
+
+/* Per allineare il thumb dentro la barra del range */
+.slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--slider-height);
+  background: var(--blackino); /* Meno bianco per il range */
+  border: 2px var(--whiteino);
+  border-radius: 25px;
+}
+
+.slider::-moz-range-track {
+  width: 100%;
+  height: var(--slider-height);
+  background: var(--blackino);
+  border: 2px var(--whiteino);
+  border-radius: 25px;
 }
