@@ -27,7 +27,7 @@ If you want to run the software quickly withouth changing any default parameter 
 - Give your computer a static IP in the Soundscape Network, like: `192.168.20.50`
 - Now open the "100flows_main.maxpat" file with Max Runtime or Max (also Max Trial works)
 - Select on the interface drop down menu the number of the matrix object you want to control and scan it with your smartphone
-- If everythin went correctly and you've done everything correctly you should see the number of the object and in the "large positioning" you can see it moving. Otherwise go to the [Common Errors and Troubleshooting](#common-errors-and-troubleshooting) section to check your setup.
+- If everything went correctly and you've done all the passages you should see the number of the object appear in the smartphone UI. Also in the "large positioning" you can see the correct object moving. Otherwise go to the [Common Errors and Troubleshooting](#common-errors-and-troubleshooting) section to check your setup.
 
 ## OSC Network Setup Instructions
 
