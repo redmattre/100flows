@@ -5,7 +5,7 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Quick Setup](#quicksetup)
+2. [Quicksetup](#quicksetup)
 3. [OSC Network Setup Instructions](#osc-network-setup-instructions)
 4. [LAN Network Setup Instructions](#lan-network-setup-instructions)
 5. [Generating QR Codes](#generating-qr-codes)
