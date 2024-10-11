@@ -32,8 +32,11 @@ If you want to run the software quickly withouth changing any default parameter 
 If you want to manually setup the system or understand it more deeply you have all the instructions below.
 
 ![100flows server controller UI](./images/UI1.jpeg)
-![100flows client controller UI](./images/UI2.jpeg)
+*100flows server controller UI*
 ![100flows functioning scheme](./images/scheme1.jpeg)
+*100flows functioning scheme*
+![100flows client controller UI](./images/UI2.jpeg)
+*100flows client controller UI*
 
 ## OSC Network Setup Instructions
 
