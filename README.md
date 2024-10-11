@@ -1,6 +1,6 @@
 # 100flows
 
-100flows is a Node.js-based server software that uses Max MSP to handle connections between x/y controllers generated on client web pages and translate the input into OSC messages interpretable by the d&b audiotechnik DS100 hardware system. The control interfaces can be accessed via internet through tunneling systems (such as ngrok) or by setting up a Wi-Fi LAN using a router.
+100flows is a Node.js-based server software that uses Max MSP to handle connections between x/y controllers generated on client web pages (reacheable with QR codes) and translate the input into OSC messages interpretable by the d&b audiotechnik DS100 hardware system. The control interfaces can be accessed via internet through tunneling systems (such as ngrok) or by setting up a Wi-Fi LAN using a router.
 
 ## Table of Contents
 
