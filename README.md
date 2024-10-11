@@ -5,16 +5,29 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [OSC Network Setup Instructions](#osc-network-setup-instructions)
-3. [LAN Network Setup Instructions](#lan-network-setup-instructions)
-4. [Generating QR Codes](#generating-qr-codes)
-5. [Final Setup](#final-setup)
-6. [Common Errors and Troubleshooting](#common-errors-and-troubleshooting)
+2. [Quick Setup](#quicksetup)
+3. [OSC Network Setup Instructions](#osc-network-setup-instructions)
+4. [LAN Network Setup Instructions](#lan-network-setup-instructions)
+5. [Generating QR Codes](#generating-qr-codes)
+6. [Final Setup](#final-setup)
+7. [Common Errors and Troubleshooting](#common-errors-and-troubleshooting)
 
 ## Introduction
 
 100flows allows users to control spatial audio objects via web-based controllers and send their inputs to a DS100 Soundscape system. Users can access the controller interfaces by connecting to the host machine’s localhost or through a Wi-Fi LAN setup.
 Note that the following steps are only needed the first time, after setting up the network connection you can just open the 100flows app.
+
+## Quicksetup
+
+If you want to run the software quickly withouth changing any default parameter and withouth generating new QR Codes these are the setps needed:
+
+- Setup a Router to host a local Wi-Fi network with IP: `192.168.0.1`
+- Connect your computer to the LAN you just setup and change your IP to be static on: `192.168.0.2`
+- Create a network for the Sounscape connection over ethernet, the Soundscape IP is `192.168.20.99` and the port is `50010`
+- Give your computer a static IP in the Soundscape Network, like: `192.168.20.50`
+- Now open the "100flows_main.maxpat" file with Max Runtime or Max (also Max Trial works)
+- Select on the interface drop down menu the number of the matrix object you want to control and scan it with your smartphone
+- If everythin went correctly and you've done everything correctly you should see the number of the object and in the "large positioning" you can see it moving. Otherwise go to the [Common Errors and Troubleshooting](#common-errors-and-troubleshooting) section to check your setup.
 
 ## OSC Network Setup Instructions
 
