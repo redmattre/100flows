@@ -29,6 +29,12 @@ If you want to run the software quickly withouth changing any default parameter 
 - Select on the interface drop down menu the number of the matrix object you want to control and scan it with your smartphone
 - If everything went correctly and you've done all the passages you should see the number of the object appear in the smartphone UI. Also in the "large positioning" you can see the correct object moving. Otherwise go to the [Common Errors and Troubleshooting](#common-errors-and-troubleshooting) section to check your setup.
 
+If you want to manually setup the system or understand it more deeply you have all the instructions below.
+
+![100flows server controller UI](./images/UI1.jpeg)
+![100flows client controller UI](./images/UI2.jpeg)
+![100flows functioning scheme](./images/scheme1.jpeg)
+
 ## OSC Network Setup Instructions
 
 To connect the DS100 Soundscape system to 100flows, follow these steps:
