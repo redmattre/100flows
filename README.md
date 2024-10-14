@@ -10,7 +10,8 @@
 4. [LAN Network Setup Instructions](#lan-network-setup-instructions)
 5. [Generating QR Codes](#generating-qr-codes)
 6. [Final Setup](#final-setup)
-7. [Common Errors and Troubleshooting](#common-errors-and-troubleshooting)
+7. [User Guide](#user-guide)
+8. [Common Errors and Troubleshooting](#common-errors-and-troubleshooting)
 
 ## Introduction
 
@@ -100,6 +101,22 @@ To finalize the setup, follow these steps:
 3. Your default browser should open with the controller and GUI interface.
 4. If the message at the top remains “connecting…”, the OSC connection between 100flows and the Soundscape is not functioning (see Error 02).
 5. If successful, the page will show the name of the first object in the R1 project.
+
+## User Guide
+
+In the main patcher UI you can edit:
+
+- The port of the localhost hosting page on your local network
+- The IP of the Soundscape system
+- The port of the Soundscape system
+- The square meter area of intervention of the controller of each client (you can change that dinamically, you just need to refresh the client page to see the changes taking place correctly)
+
+You can also choose the QR code that you want to scan with a drop down menù in the upper area of the element. The number is linked to the specific URL of the controller for that numbered object.
+
+In the client UI you have:
+
+- 2D controller to move the object in the space
+- A slider that controls the reverb send gain for the specific object
 
 ## Common Errors and Troubleshooting
 
