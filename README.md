@@ -121,3 +121,5 @@ If the test page displays the GUI but remains stuck on “connecting…”, try 
 ### Error 03: Speaker setup not showing
 
 If the client controller page on the phone does not show the speaker setup graphically you should try and relaunch the patch, it may be that you open patch before setting up the OSC connection with the Soundscape.
+
+*the network starting code for this project belongs to the CidLink project of Enrico Pietrocola*
