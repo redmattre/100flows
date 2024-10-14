@@ -111,7 +111,7 @@
 					"patching_rect" : [ 162.0, 373.200005114078522, 113.0, 15.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 336.428579449653625, 337.142865180969238, 130.0, 15.0 ],
-					"text" : "licensed for $$$$$$",
+					"text" : "licensed for Serge Gräfe",
 					"textjustification" : 2
 				}
 
