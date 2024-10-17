@@ -5,7 +5,7 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Quicksetup](#quicksetup)
+2. [Quick Setup](#quick-setup)
 3. [OSC Network Setup Instructions](#osc-network-setup-instructions)
 4. [LAN Network Setup Instructions](#lan-network-setup-instructions)
 5. [Generating QR Codes](#generating-qr-codes)
@@ -18,7 +18,7 @@
 100flows allows users to control spatial audio objects via web-based controllers and send their inputs to a DS100 Soundscape system. Users can access the controller interfaces by connecting to the host machine’s localhost or through a Wi-Fi LAN setup.
 Note that the following steps are only needed the first time, after setting up the network connection you can just open the 100flows app.
 
-## Quicksetup
+## Quick Setup
 
 If you want to run the software quickly withouth changing any default parameter and withouth generating new QR Codes these are the setps needed:
 
