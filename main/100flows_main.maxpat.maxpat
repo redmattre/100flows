@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 79.0, 113.0, 581.0, 440.0 ],
+		"rect" : [ 80.0, 113.0, 571.0, 432.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,96 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 179.5, 289.0, 355.0, 22.0 ],
+					"text" : "sprintf \\; max launch_browser http://127.0.0.1:%ld/?room=stanza1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 333.5, 227.5, 55.0, 22.0 ],
+					"text" : "del 2000"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 333.5, 201.428576231002808, 58.0, 22.0 ],
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 259.0, 227.5, 56.0, 22.0 ],
+					"restore" : 					{
+						"number[1]" : [ 5555 ]
+					}
+,
+					"text" : "autopattr",
+					"varname" : "u834004550"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 332.0, 14.0, 56.0, 22.0 ],
+					"restore" : 					{
+						"number" : [ 15 ]
+					}
+,
+					"text" : "autopattr",
+					"varname" : "u732002054"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-30",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 405.0, 14.0, 153.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"client_rect" : [ 146, 169, 500, 297 ],
+						"parameter_enable" : 0,
+						"parameter_mappable" : 0,
+						"storage_rect" : [ 583, 69, 1034, 197 ]
+					}
+,
+					"text" : "pattrstorage @savemode 2",
+					"varname" : "u098001751"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-42",
 					"maxclass" : "newobj",
@@ -108,7 +198,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 162.0, 373.200005114078522, 113.0, 15.0 ],
+					"patching_rect" : [ 582.857156753540039, 30.000000357627869, 113.0, 15.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 336.428579449653625, 337.142865180969238, 130.0, 15.0 ],
 					"text" : "licensed for Serge Gräfe",
@@ -125,7 +215,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 147.0, 358.200005114078522, 113.0, 24.0 ],
+					"patching_rect" : [ 567.85715639591217, 15.0, 113.0, 24.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 113.571431279182434, 337.142865180969238, 130.0, 15.0 ],
 					"text" : "pierpaolo ovarini @ Pase Platform"
@@ -139,7 +229,7 @@
 					"maxclass" : "live.line",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 440.0, 360.0, 5.0, 100.0 ],
+					"patching_rect" : [ 486.785725891590118, 368.230602771043777, 8.571428775787354, 10.28368815779686 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 95.714287996292114, 315.714293241500854, 388.0, 21.0 ]
 				}
@@ -152,7 +242,7 @@
 					"maxclass" : "live.line",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 440.0, 420.0, 5.0, 100.0 ],
+					"patching_rect" : [ 509.857154965400696, 402.658161833882332, 8.571428775787354, 10.28368815779686 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 257.142863273620605, 114.0, 21.0 ]
 				}
@@ -165,7 +255,7 @@
 					"maxclass" : "live.line",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 440.0, 360.0, 5.0, 100.0 ],
+					"patching_rect" : [ 486.785725891590118, 368.230602771043777, 8.571428775787354, 10.28368815779686 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 190.714290261268616, 114.0, 21.0 ]
 				}
@@ -178,7 +268,7 @@
 					"maxclass" : "live.line",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 425.0, 345.0, 5.0, 100.0 ],
+					"patching_rect" : [ 471.537498623132706, 353.336985439062119, 8.571428775787354, 10.28368815779686 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 102.857145309448242, 114.0, 21.0 ]
 				}
@@ -191,7 +281,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 152.499999284744263, 25.0, 63.0, 33.0 ],
+					"patching_rect" : [ 576.428585171699524, 45.000001072883606, 63.0, 33.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 167.857146859169006, 90.714287877082825, 115.000000715255737, 20.0 ],
 					"text" : "Object      on LAN",
@@ -386,7 +476,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 79.0, 97.0, 1284.0, 748.0 ],
+						"rect" : [ 80.0, 97.0, 1016.0, 747.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -416,13 +506,26 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-5",
+									"linecount" : 4,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 400.0, 68.0, 150.0, 60.0 ],
+									"text" : "qui potrebbe essere aggiunto un pattr se richiesto. Al momento non lo trovo necessario"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-3",
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 285.0, 68.0, 92.0, 22.0 ],
-									"text" : "symbol \"50010\""
+									"text" : "symbol \"50010\"",
+									"varname" : "message[1]"
 								}
 
 							}
@@ -434,7 +537,8 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 123.0, 68.0, 127.0, 22.0 ],
-									"text" : "symbol 192.168.20.99"
+									"text" : "symbol 192.168.20.99",
+									"varname" : "message"
 								}
 
 							}
@@ -653,7 +757,8 @@
 						"tags" : ""
 					}
 ,
-					"text" : "p ip_setting"
+					"text" : "p ip_setting",
+					"varname" : "ip_setting"
 				}
 
 			}
@@ -820,18 +925,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-53",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 332.0, 15.0, 70.0, 22.0 ],
-					"text" : "loadmess 4"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"bgcolor" : [ 0.2, 0.2, 0.2, 0.0 ],
 					"id" : "obj-52",
 					"maxclass" : "number",
@@ -846,7 +939,8 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 204.285719156265259, 50.0, 22.0 ],
 					"textcolor" : [ 0.16241355240345, 0.166287079453468, 0.169717401266098, 1.0 ],
-					"triangle" : 0
+					"triangle" : 0,
+					"varname" : "number"
 				}
 
 			}
@@ -864,34 +958,12 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-5",
-					"linecount" : 7,
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 114.0, 54.0, 76.0, 102.0 ],
-					"text" : ";\rmax launch_browser http://127.0.0.1:7776/?room=stanza2"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-13",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 142.5, 227.5, 109.0, 22.0 ],
-					"text" : "loadmess set 7776"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"bgcolor" : [ 0.2, 0.2, 0.2, 0.0 ],
 					"id" : "obj-12",
 					"maxclass" : "number",
+					"maximum" : 99999,
+					"minimum" : 0,
+					"mousefilter" : 1,
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
@@ -900,7 +972,8 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 115.714288473129272, 50.0, 22.0 ],
 					"textcolor" : [ 0.16241355240345, 0.166287079453468, 0.169717401266098, 1.0 ],
-					"triangle" : 0
+					"triangle" : 0,
+					"varname" : "number[1]"
 				}
 
 			}
@@ -913,7 +986,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 17.0, 54.0, 79.0, 102.0 ],
-					"text" : ";\rmax launch_browser http://127.0.0.1:7776/?room=stanza1"
+					"text" : ";\rmax launch_browser http://127.0.0.1:5555/?room=stanza1"
 				}
 
 			}
@@ -954,7 +1027,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 460.0, 323.0, 128.0, 128.0 ],
+					"patching_rect" : [ 504.285726308822632, 392.08571982383728, 33.571429371833801, 31.428572177886963 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 245.000005841255188, 114.0, 69.0 ],
 					"proportion" : 0.5,
@@ -973,7 +1046,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 460.0, 323.0, 128.0, 128.0 ],
+					"patching_rect" : [ 504.285726308822632, 392.08571982383728, 33.571429371833801, 31.428572177886963 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 177.142861366271973, 114.0, 49.0 ],
 					"proportion" : 0.5,
@@ -992,7 +1065,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 445.0, 308.0, 128.0, 128.0 ],
+					"patching_rect" : [ 489.285725951194763, 377.085719466209412, 33.571429371833801, 31.428572177886963 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 352.142865538597107, 89.285716414451599, 114.0, 49.0 ],
 					"proportion" : 0.5,
@@ -1011,7 +1084,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 430.0, 293.0, 128.0, 128.0 ],
+					"patching_rect" : [ 474.285725593566895, 362.085719108581543, 33.571429371833801, 31.428572177886963 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 113.571431279182434, 89.285716414451599, 225.0, 225.0 ],
 					"proportion" : 0.5,
@@ -1029,7 +1102,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 244.600004494190216, 599.285728573799133, 100.0, 100.0 ],
-					"pic" : "qr_code_stanza_25.png",
+					"pic" : "qr_code_stanza_1.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 113.571431279182434, 89.285716414451599, 225.0, 225.0 ]
 				}
@@ -1046,7 +1119,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 415.0, 278.0, 128.0, 128.0 ],
+					"patching_rect" : [ 459.285725235939026, 347.085718750953674, 33.571429371833801, 31.428572177886963 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 95.714287996292114, 74.28571605682373, 388.0, 289.0 ],
 					"proportion" : 0.5,
@@ -1101,13 +1174,22 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 1 ],
+					"order" : 1,
 					"source" : [ "obj-12", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
+					"destination" : [ "obj-5", 0 ],
+					"order" : 0,
+					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-36", 0 ],
 					"source" : [ "obj-13", 0 ]
 				}
 
@@ -1116,6 +1198,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-134", 0 ],
 					"source" : [ "obj-2", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-52", 0 ],
+					"source" : [ "obj-23", 0 ]
 				}
 
 			}
@@ -1137,6 +1226,20 @@
 				"patchline" : 				{
 					"destination" : [ "obj-33", 0 ],
 					"source" : [ "obj-34", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-35", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-36", 0 ]
 				}
 
 			}
@@ -1170,6 +1273,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-28", 1 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-21", 1 ],
 					"order" : 0,
 					"source" : [ "obj-52", 0 ]
@@ -1181,13 +1291,6 @@
 					"destination" : [ "obj-43", 0 ],
 					"order" : 1,
 					"source" : [ "obj-52", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-52", 0 ],
-					"source" : [ "obj-53", 0 ]
 				}
 
 			}
@@ -1288,7 +1391,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "qr_code_stanza_25.png",
+				"name" : "qr_code_stanza_1.png",
 				"bootpath" : "~/Desktop/Temporaneo/DS100_mobilecontrol/dev/100flows/main",
 				"patcherrelativepath" : ".",
 				"type" : "PNG",
