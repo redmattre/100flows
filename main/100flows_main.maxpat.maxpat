@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 80.0, 113.0, 571.0, 432.0 ],
+		"rect" : [ 80.0, 113.0, 581.0, 441.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -83,7 +83,7 @@
 					"outlettype" : [ "", "", "", "" ],
 					"patching_rect" : [ 259.0, 227.5, 56.0, 22.0 ],
 					"restore" : 					{
-						"number[1]" : [ 5555 ]
+						"number[1]" : [ 7776 ]
 					}
 ,
 					"text" : "autopattr",
@@ -100,7 +100,7 @@
 					"outlettype" : [ "", "", "", "" ],
 					"patching_rect" : [ 332.0, 14.0, 56.0, 22.0 ],
 					"restore" : 					{
-						"number" : [ 15 ]
+						"number" : [ 10 ]
 					}
 ,
 					"text" : "autopattr",
@@ -986,7 +986,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 17.0, 54.0, 79.0, 102.0 ],
-					"text" : ";\rmax launch_browser http://127.0.0.1:5555/?room=stanza1"
+					"text" : ";\rmax launch_browser http://127.0.0.1:7776/?room=stanza1"
 				}
 
 			}
