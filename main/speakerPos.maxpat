@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "bang", "" ],
+					"patching_rect" : [ 188.0, 289.5, 47.0, 22.0 ],
+					"text" : "sel bau"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 188.0, 257.0, 141.0, 22.0 ],
+					"text" : "r ---dropSpeakerRequest"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"color" : [ 0.980392156862745, 0.058823529411765, 0.058823529411765, 1.0 ],
 					"id" : "obj-104",
 					"maxclass" : "newobj",
@@ -445,6 +469,13 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
 					"source" : [ "obj-104", 0 ]
 				}
@@ -498,6 +529,14 @@
 				"patchline" : 				{
 					"destination" : [ "obj-51", 0 ],
 					"source" : [ "obj-22", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-78", 0 ],
+					"midpoints" : [ 197.5, 413.75, 140.5, 413.75 ],
+					"source" : [ "obj-3", 0 ]
 				}
 
 			}
