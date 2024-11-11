@@ -109,9 +109,14 @@ In the main patcher UI you can edit:
 - The port of the localhost hosting page on your local network
 - The IP of the Soundscape system
 - The port of the Soundscape system
-- The square meter area of intervention of the controller of each client (you can change that dinamically, you just need to refresh the client page to see the changes taking place correctly)
+- The QR code that you want to scan linked to the specific URL of the controller for that numbered object.
+- You can choose to work both with Absolute or Relative coordinate mapping:
+    - Relative: you are working with the R1 / ArrayCalc project zone system in which you can choose to make four different zones the (square) size you want. So This way you can control which part of the space is under control of the users
+    - Absolute: you can change the square meters value from the origin of the project to define the area of intervention of the users
 
-You can also choose the QR code that you want to scan with a drop down menù in the upper area of the element. The number is linked to the specific URL of the controller for that numbered object.
+### Important Note:
+
+if you are in relative mode you won't see the speakers in the clients screens, you must use absolute mode if you want that.
 
 In the client UI you have:
 
