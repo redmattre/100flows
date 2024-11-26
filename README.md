@@ -24,7 +24,7 @@ If you want to run the software quickly withouth changing any default parameter 
 
 - Setup a Router to host a local Wi-Fi network with IP: `192.168.0.1`
 - Connect your computer to the LAN you just setup and change your IP to be static on: `192.168.0.2`
-- Create a network for the Sounscape connection over ethernet, the Soundscape IP is `192.168.20.99` and the port is `50010`
+- Create a network for the Soundscape connection over ethernet, the Soundscape IP is `192.168.20.99` and the port is `50010`
 - Give your computer a static IP in the Soundscape Network, like: `192.168.20.50`
 - Download Max from Cyclin'74 [website](https://cycling74.com/downloads) (The software is last tested on 8.6.2 version)
 - Now open the "100flows_main.maxpat" file with Max (also Max Trial works)
