@@ -10,13 +10,27 @@ ip_address = input("Enter the IP address of your computer in the LAN network: ")
 # Chiedi all'utente di inserire la porta del localhost
 port = input("Enter the localhost port: ")
 
+# Chiedi all'utente di inserire il prefisso
+prefix_choice = input("Enter preferred prefix ([0] => http, [1] => https, [2] => none): ")
+
+# Determina il prefisso basandoti sulla scelta
+if prefix_choice == "0":
+    prefix = "http://"
+elif prefix_choice == "1":
+    prefix = "https://"
+elif prefix_choice == "2":
+    prefix = ""  # Nessun prefisso
+else:
+    print("Invalid choice. Defaulting to 'http://'")
+    prefix = "http://"
+
 # Chiedi la dimensione dei quadrati nel QR code
 size = 100
 
 # Ciclo per generare 64 QR codes
 for i in range(1, 65):
     # Crea l'URL per ogni stanza
-    url = f"http://{ip_address}:{port}/?room=stanza{i}"
+    url = f"{prefix}{ip_address}:{port}/?room=stanza{i}"
     
     # Crea il nome del file per ogni QR code
     file_name = f"qr_code_stanza_{i}.png"
