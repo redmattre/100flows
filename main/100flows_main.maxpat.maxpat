@@ -137,7 +137,7 @@
 
 							}
  ],
-						"originid" : "pat-554"
+						"originid" : "pat-630"
 					}
 ,
 					"patching_rect" : [ 337.0, 490.391163468360901, 123.0, 22.0 ],
@@ -348,15 +348,15 @@
 					"gradient" : 1,
 					"id" : "obj-58",
 					"ignoreclick" : 1,
-					"linecount" : 3,
+					"linecount" : 5,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 617.785724401473999, 329.904761433601379, 40.0, 35.0 ],
+					"patching_rect" : [ 617.785724401473999, 329.904761433601379, 40.0, 53.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 125.000002980232239, 381.000002145767212, 280.973892539739609, 17.0 ],
-					"text" : "starting node scripts..",
+					"text" : "/dbaudio1/matrixinput/channelname/1",
 					"textcolor" : [ 0.16241355240345, 0.166287079453468, 0.169717401266098, 1.0 ]
 				}
 
@@ -404,7 +404,7 @@
 					"outlettype" : [ "", "", "", "" ],
 					"patching_rect" : [ 305.100004494190216, 594.476882576942444, 56.0, 22.0 ],
 					"restore" : 					{
-						"qrdisplayed" : [ 23 ]
+						"qrdisplayed" : [ 26 ]
 					}
 ,
 					"text" : "autopattr",
@@ -1270,7 +1270,7 @@
 
 							}
  ],
-						"originid" : "pat-562",
+						"originid" : "pat-638",
 						"bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ],
 						"editing_bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ]
 					}
@@ -1503,13 +1503,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-28",
-					"linecount" : 7,
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 307.105449676513672, 79.0, 102.0 ],
-					"text" : ";\rmax launch_browser http://127.0.0.1:7776/?room=stanza1"
+					"patching_rect" : [ 17.142857551574707, 307.105449676513672, 325.0, 35.0 ],
+					"text" : ";\rmax launch_browser https://127.0.0.1:7776/?room=stanza1"
 				}
 
 			}
@@ -1625,7 +1625,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 248.100004494190216, 831.676892042160034, 100.0, 100.0 ],
-					"pic" : "qr_code_stanza_25.png",
+					"pic" : "qr_code_stanza_28.png",
 					"presentation" : 1,
 					"presentation_rect" : [ 125.714288711547852, 108.571431159973145, 225.0, 225.0 ]
 				}
@@ -2059,7 +2059,7 @@
 
 			}
  ],
-		"originid" : "pat-552",
+		"originid" : "pat-628",
 		"parameters" : 		{
 			"obj-103" : [ "live.text[3]", "live.text[1]", 0 ],
 			"obj-105" : [ "live.text[5]", "live.text[1]", 0 ],
@@ -2150,7 +2150,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "qr_code_stanza_25.png",
+				"name" : "qr_code_stanza_28.png",
 				"bootpath" : "~/Desktop/Temporaneo/DS100_mobilecontrol/dev/100flows/main",
 				"patcherrelativepath" : ".",
 				"type" : "PNG",

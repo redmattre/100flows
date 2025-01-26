@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = require('express')();
 const http = require('http');
+const https = require('https');
 //const http = require('http').Server(app);
 const fs = require('fs');
 const socketio = require('socket.io')
@@ -15,10 +16,10 @@ let httpServer;
 let io;
 
 const args = process.argv.slice(2)
-const key = args[1]
-const cert = args[2]
-const ca = args[3]
-let domain = args[4]
+// const key = args[1]
+// const cert = args[2]
+// const ca = args[3]
+// let domain = args[4]
 
 let PORT = args[0]
 
@@ -161,26 +162,33 @@ Max.addHandler ("setMeter", (roomName, meterVal) => {
     io.to(roomName).emit('metering', message);
 });
 
-function createServer(){
-    // create https server if ssl keys are set properly and passed by argument
+function createServer() {
+    // Percorsi dei certificati SSL
+    const sslKeyPath = path.join(__dirname, 'ssl', 'key.pem');
+    const sslCertPath = path.join(__dirname, 'ssl', 'cert.pem');
+
     try {
-        if (fs.existsSync(key) && fs.existsSync(cert)) {
-            //file exists
+        // Controlla se i file di certificato esistono
+        if (fs.existsSync(sslKeyPath) && fs.existsSync(sslCertPath)) {
+            // Configurare e avviare il server HTTPS
             httpsServer = https.createServer({
-                key: fs.readFileSync(key, 'utf8'),
-                cert: fs.readFileSync(cert, 'utf8'),
-                //ca: fs.readFileSync(ca, 'utf8') //hide this if your ssl keys don't include ca
-            }, app).listen(443)
-            io = socketio(httpsServer)
-            Max.post('SSL certificates set. Starting https server')
+                key: fs.readFileSync(sslKeyPath, 'utf8'),
+                cert: fs.readFileSync(sslCertPath, 'utf8'),
+                // Se non usi una CA, puoi commentare questa linea
+                // ca: fs.readFileSync(ca, 'utf8')
+            }, app).listen(PORT);
+
+            io = socketio(httpsServer);
+            Max.post('SSL certificates set. Starting HTTPS server on port 443');
         } else {
-            Max.post('SSL certificates absent. Starting http server')
+            // Fallback a HTTP se i certificati non sono presenti
+            Max.post('SSL certificates absent. Starting HTTP server');
             httpServer = http.createServer(app);
-            io = socketio(httpServer)
-            httpServer.listen(PORT)
+            io = socketio(httpServer);
+            httpServer.listen(PORT);
         }
     } catch (err) {
-        console.error(err)
+        console.error('Errore nella configurazione del server:', err);
     }
 }
 
