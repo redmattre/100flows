@@ -12,7 +12,7 @@
 6. [Final Setup](#final-setup)
 7. [User Guide](#user-guide)
 8. [Common Errors and Troubleshooting](#common-errors-and-troubleshooting)
-9. [Note on encryption](#note-on-encryption)
+9. [Notes on encryption](#notes-on-encryption)
 
 ## Introduction
 
@@ -147,9 +147,9 @@ If the client controller page on the phone does not show the speaker setup graph
 
 
 
-## Note on encryption
+## Notes on encryption
 
-Since version 2.2.2 (which is also the first stable release) the "100 flows" can be routed through HTTPS safe encrypted connection. Due to the nature of the open LAN system that 100flows works it's in development the possibility of using a valid authority certified SSL certificate, by know there's a self signed one that leaves a warning at first connection. 
+Since version 2.2.2 (which is also the first stable release) the "100 flows" can be routed through HTTPS safe encrypted connection. Due to the nature of the private LAN system that 100flows works on, it's in development the possibility of using a valid authority certified SSL certificate, by know there's a self signed one that leaves a warning at first connection. 
 
 100flows is made to work in offline LAN conditions and specific public events so the informations of the users are not collected nor distributed by the developer (me) and there's no security risk.
 
