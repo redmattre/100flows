@@ -3,23 +3,18 @@ const express = require('express');
 const app = require('express')();
 const http = require('http');
 const https = require('https');
-//const http = require('http').Server(app);
 const fs = require('fs');
 const socketio = require('socket.io')
 const rooms = require('./rooms.js')
 const Max = require('max-api')
 let roomName = "testRoom";
 
-
+let isHttps = true; // default encryption
 let httpsServer;
 let httpServer;
 let io;
 
 const args = process.argv.slice(2)
-// const key = args[1]
-// const cert = args[2]
-// const ca = args[3]
-// let domain = args[4]
 
 let PORT = args[0]
 
@@ -56,10 +51,8 @@ io.on('connection', (socket) => {
                 // Inviare il messaggio agli altri client nella stanza
                 socket.to(room).emit('datachannel', data);
     
-                // Formattare il messaggio con il nome della stanza
                 const messageForMax = `${room}: ${data}`;
     
-                // Inviare il messaggio formattato a Max
                 Max.outlet(messageForMax);
     
                 console.log(`cmd ${socket.id} ${messageForMax}`);
@@ -79,10 +72,8 @@ io.on('connection', (socket) => {
                 // Inviare il messaggio agli altri client nella stanza
                 socket.to(room).emit('datachannel', data);
     
-                // Formattare il messaggio con il nome della stanza
                 const messageForMax = `${room}: ${data}`;
     
-                // Inviare il messaggio formattato a Max
                 Max.outlet(messageForMax);
     
                 console.log(`cmd ${socket.id} ${messageForMax}`);
@@ -119,12 +110,6 @@ io.on('connection', (socket) => {
     })
 })
 
-// Gestire l'invio di un messaggio a una specifica stanza
-// Max.addHandler("sendToRoom", (roomName, message) => {
-//     Max.post(`Sending message to room: ${roomName}, message: ${message}`);
-//     io.to(roomName).emit('datachannel', message);
-// });
-
 Max.addHandler("sendToRoom", (roomName, trackName, x, y, sliderValue) => {
     const message = JSON.stringify({
         track: trackName,
@@ -134,12 +119,7 @@ Max.addHandler("sendToRoom", (roomName, trackName, x, y, sliderValue) => {
     });
 
     io.to(roomName).emit('datachannel', message);
-    // Max.post(`Sending to room: ${roomName}, x: ${x}, y: ${y}, slider: ${sliderValue}`);
 });
-
-// Max.addHandler("sendMessageToAll", (msg) => {
-//     io.emit('datachannel', msg);
-// });
 
 Max.addHandler("sendMessageToAll", (padSize, speakerX, speakerY, speakerPan, speakerNumber) => {
     const message = JSON.stringify({
@@ -162,34 +142,89 @@ Max.addHandler ("setMeter", (roomName, meterVal) => {
     io.to(roomName).emit('metering', message);
 });
 
-function createServer() {
-    // Percorsi dei certificati SSL
-    const sslKeyPath = path.join(__dirname, 'ssl', 'key.pem');
-    const sslCertPath = path.join(__dirname, 'ssl', 'cert.pem');
+Max.addHandler("setEncryption", (bool) => {
+    isHttps = bool;
 
-    try {
-        // Controlla se i file di certificato esistono
-        if (fs.existsSync(sslKeyPath) && fs.existsSync(sslCertPath)) {
-            // Configurare e avviare il server HTTPS
-            httpsServer = https.createServer({
-                key: fs.readFileSync(sslKeyPath, 'utf8'),
-                cert: fs.readFileSync(sslCertPath, 'utf8'),
-                // Se non usi una CA, puoi commentare questa linea
-                // ca: fs.readFileSync(ca, 'utf8')
-            }, app).listen(PORT);
-
-            io = socketio(httpsServer);
-            Max.post('SSL certificates set. Starting HTTPS server on port 443');
-        } else {
-            // Fallback a HTTP se i certificati non sono presenti
-            Max.post('SSL certificates absent. Starting HTTP server');
-            httpServer = http.createServer(app);
-            io = socketio(httpServer);
-            httpServer.listen(PORT);
-        }
-    } catch (err) {
-        console.error('Errore nella configurazione del server:', err);
+    // Chiudi il server attuale se esiste
+    if (httpsServer) {
+        httpsServer.close(() => {
+            Max.post('HTTPS server closed.');
+        });
+        httpsServer = null;
     }
+
+    if (httpServer) {
+        httpServer.close(() => {
+            Max.post('HTTP server closed.');
+        });
+        httpServer = null;
+    }
+
+    // Riavvia il server con il nuovo valore di isHttps
+    if (bool) {
+        Max.post('Restarting server with encryption');
+    } else {
+        Max.post('Restarting server without encryption')
+    }
+    
+    createServer();
+});
+
+Max.addHandler("changePort", (portNumber) => {
+    PORT = portNumber;
+
+    // Chiudi il server attuale se esiste
+    if (httpsServer) {
+        httpsServer.close(() => {
+            Max.post('HTTPS server closed.');
+        });
+        httpsServer = null;
+    }
+
+    if (httpServer) {
+        httpServer.close(() => {
+            Max.post('HTTP server closed.');
+        });
+        httpServer = null;
+    }
+    
+    createServer();
+
+    Max.post('Restarted server on port: ' + PORT);
+});
+
+function createServer() {
+    if (isHttps) {
+        const sslKeyPath = path.join(__dirname, 'ssl', 'key.pem');
+        const sslCertPath = path.join(__dirname, 'ssl', 'cert.pem');
+
+        try {
+            if (fs.existsSync(sslKeyPath) && fs.existsSync(sslCertPath)) {
+                httpsServer = https.createServer({
+                    key: fs.readFileSync(sslKeyPath, 'utf8'),
+                    cert: fs.readFileSync(sslCertPath, 'utf8'),
+                }, app).listen(PORT);
+
+                io = socketio(httpsServer);
+                Max.post('Started HTTPS server on port ' + PORT);
+            } else {
+                throw new Error('SSL certificates not found.');
+            }
+        } catch (err) {
+            console.error('Error setting up HTTPS server:', err);
+            Max.post('Falling back to HTTP...');
+            createHttpServer();
+        }
+    } else {
+        createHttpServer();
+    }
+}
+
+function createHttpServer() {
+    httpServer = http.createServer(app);
+    io = socketio(httpServer);
+    httpServer.listen(PORT);
+    Max.post('Started HTTP server on port ' + PORT);
 }
 
 function isJson(str) {

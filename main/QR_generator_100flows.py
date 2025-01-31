@@ -5,27 +5,29 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Chiedi all'utente di inserire l'indirizzo IP
-ip_address = input("Enter the IP address of your computer in the LAN network: ")
+ip_address = input("Enter the hostname (or static IP) of your computer in the LAN network: ")
 
 # Chiedi all'utente di inserire la porta del localhost
-port = input("Enter the localhost port: ")
+port = input("Enter the localhost port you intend to run 100flows on: ")
 
 # Chiedi all'utente di inserire il prefisso
-prefix_choice = input("Enter preferred prefix ([0] => http, [1] => https, [2] => none): ")
+# prefix_choice = input("Enter preferred prefix ([0] => http, [1] => https, [2] => none): ")
 
 # Determina il prefisso basandoti sulla scelta
-if prefix_choice == "0":
-    prefix = "http://"
-elif prefix_choice == "1":
-    prefix = "https://"
-elif prefix_choice == "2":
-    prefix = ""  # Nessun prefisso
-else:
-    print("Invalid choice. Defaulting to 'http://'")
-    prefix = "http://"
+# if prefix_choice == "0":
+#     prefix = "http://"
+# elif prefix_choice == "1":
+#     prefix = "https://"
+# elif prefix_choice == "2":
+#     prefix = ""  # Nessun prefisso
+# else:
+#     print("Invalid choice. Defaulting to 'http://'")
+#     prefix = "http://"
 
 # Chiedi la dimensione dei quadrati nel QR code
 size = 100
+prefix = "https://"
+# ip_address = "100flows"
 
 # Ciclo per generare 64 QR codes
 for i in range(1, 65):

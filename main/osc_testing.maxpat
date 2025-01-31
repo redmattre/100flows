@@ -2,74 +2,51 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 2,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 204.0, 178.0, 832.0, 511.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 12.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Arial",
-		"gridonopen" : 1,
+		"rect" : [ 204.0, 178.0, 962.0, 584.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "",
-		"subpatcher_template" : "",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-33",
-					"maxclass" : "newobj",
+					"id" : "obj-12",
+					"linecount" : 6,
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 292.0, 413.0, 95.0, 22.0 ],
-					"text" : "s ---param_ToIP"
+					"patching_rect" : [ 24.0, 453.0, 150.0, 87.0 ],
+					"presentation_linecount" : 6,
+					"text" : "If you are here and you a soundscape system on try and erase this and restart everything. If it works you can get rid of it and tell me.",
+					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-31",
-					"maxclass" : "newobj",
+					"id" : "obj-8",
+					"linecount" : 2,
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 451.0, 267.0, 75.0, 22.0 ],
-					"text" : "s ---toServer"
+					"patching_rect" : [ 451.0, 284.0, 204.0, 33.0 ],
+					"presentation_linecount" : 3,
+					"text" : "for sync audio visual feedback (slows everything down)"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-29",
-					"linecount" : 7,
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 437.0, 414.0, 57.0, 102.0 ],
-					"text" : "/dbaudio1/positioning/speaker_position/26 0. 0. 0. 0. 0. 0."
+					"id" : "obj-4",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 24.0, 46.0, 150.0, 20.0 ],
+					"text" : "manual osc debug"
 				}
 
 			}
@@ -81,7 +58,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 724.0, 331.0, 50.0, 22.0 ]
+					"patching_rect" : [ 378.0, 153.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -91,7 +68,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 724.0, 402.0, 95.0, 22.0 ],
+					"patching_rect" : [ 378.0, 224.0, 95.0, 22.0 ],
 					"text" : "s ---param_ToIP"
 				}
 
@@ -104,7 +81,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 724.0, 362.0, 258.0, 22.0 ],
+					"patching_rect" : [ 378.0, 184.0, 258.0, 22.0 ],
 					"text" : "sprintf /dbaudio1/matrixinput/channelname/%ld"
 				}
 
@@ -115,7 +92,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 514.0, 421.0, 110.0, 22.0 ],
+					"patching_rect" : [ 228.0, 370.0, 110.0, 22.0 ],
 					"text" : "s ---param_FromIP"
 				}
 
@@ -128,7 +105,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 244.0, 280.0, 24.0, 24.0 ]
+					"patching_rect" : [ 403.0, 288.0, 24.0, 24.0 ],
+					"svg" : ""
 				}
 
 			}
@@ -148,20 +126,7 @@
 					"numoutlets" : 4,
 					"outlettype" : [ "float", "", "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 861.0, 43.0, 100.0, 50.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-34",
-					"linecount" : 7,
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 728.0, 208.0, 50.0, 102.0 ],
-					"text" : "/dbaudio1/matrixinput/reverbsendgain/0 -120."
+					"patching_rect" : [ 743.0, 51.0, 100.0, 50.0 ]
 				}
 
 			}
@@ -172,7 +137,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 861.0, 103.0, 107.0, 22.0 ],
+					"patching_rect" : [ 743.0, 111.0, 107.0, 22.0 ],
 					"text" : "scale 0. 1. -120. 0."
 				}
 
@@ -183,7 +148,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 783.0, 208.0, 95.0, 22.0 ],
+					"patching_rect" : [ 665.0, 216.0, 95.0, 22.0 ],
 					"text" : "s ---param_ToIP"
 				}
 
@@ -199,7 +164,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 861.0, 7.0, 50.0, 22.0 ]
+					"patching_rect" : [ 743.0, 15.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -211,7 +176,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 783.0, 103.0, 50.0, 22.0 ]
+					"patching_rect" : [ 665.0, 111.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -222,7 +187,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 783.0, 139.0, 97.0, 22.0 ],
+					"patching_rect" : [ 665.0, 147.0, 97.0, 22.0 ],
 					"text" : "join @triggers -1"
 				}
 
@@ -234,7 +199,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 244.0, 321.0, 126.0, 22.0 ],
+					"patching_rect" : [ 403.0, 329.0, 126.0, 22.0 ],
 					"text" : "qmetro 100 @active 0"
 				}
 
@@ -247,7 +212,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 783.0, 176.0, 286.0, 22.0 ],
+					"patching_rect" : [ 665.0, 184.0, 286.0, 22.0 ],
 					"text" : "sprintf /dbaudio1/matrixinput/reverbsendgain/%ld %f"
 				}
 
@@ -261,7 +226,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 194.0, 65.0, 50.0, 22.0 ]
+					"patching_rect" : [ 102.0, 74.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -272,7 +237,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 194.0, 102.0, 41.0, 22.0 ],
+					"patching_rect" : [ 102.0, 111.0, 41.0, 22.0 ],
 					"text" : "pak f f"
 				}
 
@@ -286,7 +251,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 250.0, 65.0, 50.0, 22.0 ]
+					"patching_rect" : [ 158.0, 74.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -298,7 +263,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 99.0, 65.0, 50.0, 22.0 ]
+					"patching_rect" : [ 24.0, 73.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -310,7 +275,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 30.0, 176.0, 322.0, 22.0 ],
+					"patching_rect" : [ 24.0, 184.0, 322.0, 22.0 ],
 					"text" : "sprintf /dbaudio1/positioning/source_position_xy/%ld %f %f"
 				}
 
@@ -322,7 +287,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 30.0, 139.0, 97.0, 22.0 ],
+					"patching_rect" : [ 24.0, 147.0, 97.0, 22.0 ],
 					"text" : "join @triggers -1"
 				}
 
@@ -333,7 +298,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.0, 212.0, 95.0, 22.0 ],
+					"patching_rect" : [ 24.0, 220.0, 95.0, 22.0 ],
 					"text" : "s ---param_ToIP"
 				}
 
@@ -345,7 +310,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 514.0, 362.0, 103.0, 22.0 ],
+					"patching_rect" : [ 228.0, 334.0, 103.0, 22.0 ],
 					"text" : "udpreceive 50011"
 				}
 
@@ -357,7 +322,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 244.0, 362.0, 243.0, 22.0 ],
+					"patching_rect" : [ 403.0, 370.0, 243.0, 22.0 ],
 					"text" : "/dbaudio1/matrixoutput/levelmeterpremute/1"
 				}
 
@@ -369,7 +334,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 124.0, 362.0, 93.0, 22.0 ],
+					"patching_rect" : [ 118.0, 370.0, 93.0, 22.0 ],
 					"text" : "r ---param_ToIP"
 				}
 
@@ -384,42 +349,16 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 6,
-							"revision" : 2,
+							"major" : 9,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
 						"rect" : [ 79.0, 97.0, 1284.0, 748.0 ],
-						"bglocked" : 0,
-						"openinpresentation" : 0,
-						"default_fontsize" : 12.0,
-						"default_fontface" : 0,
-						"default_fontname" : "Arial",
-						"gridonopen" : 1,
 						"gridsize" : [ 15.0, 15.0 ],
-						"gridsnaponopen" : 1,
-						"objectsnaponopen" : 1,
-						"statusbarvisible" : 2,
-						"toolbarvisible" : 1,
-						"lefttoolbarpinned" : 0,
-						"toptoolbarpinned" : 0,
-						"righttoolbarpinned" : 0,
-						"bottomtoolbarpinned" : 0,
-						"toolbars_unpinned_last_save" : 0,
-						"tallnewobj" : 0,
-						"boxanimatetime" : 200,
-						"enablehscroll" : 1,
-						"enablevscroll" : 1,
-						"devicewidth" : 0.0,
-						"description" : "",
-						"digest" : "",
-						"tags" : "",
-						"style" : "",
-						"subpatcher_template" : "",
-						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-3",
@@ -645,18 +584,16 @@
 
 							}
  ],
+						"originid" : "pat-96",
 						"bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ],
 						"editing_bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 30.0, 362.0, 82.0, 22.0 ],
+					"patching_rect" : [ 24.0, 370.0, 82.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"description" : "",
-						"digest" : "",
 						"editing_bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ],
 						"globalpatchername" : "",
-						"locked_bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ],
-						"tags" : ""
+						"locked_bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ]
 					}
 ,
 					"text" : "p ip_setting"
@@ -672,7 +609,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 93.0, 336.0, 44.0, 15.0 ],
+					"patching_rect" : [ 87.0, 344.0, 44.0, 15.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 23.0, 121.0, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
@@ -681,6 +618,7 @@
 							"parameter_longname" : "live.text[4]",
 							"parameter_mmax" : 1,
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "live.text[1]",
 							"parameter_type" : 2
 						}
@@ -698,7 +636,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.0, 421.0, 171.0, 22.0 ],
+					"patching_rect" : [ 24.0, 429.0, 171.0, 22.0 ],
 					"text" : "udpsend 192.168.20.99 50010"
 				}
 
@@ -712,7 +650,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 30.0, 336.0, 44.0, 15.0 ],
+					"patching_rect" : [ 24.0, 344.0, 44.0, 15.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 23.0, 104.0, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
@@ -721,6 +659,7 @@
 							"parameter_longname" : "live.text[2]",
 							"parameter_mmax" : 1,
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "live.text[1]",
 							"parameter_type" : 2
 						}
@@ -729,6 +668,20 @@
 ,
 					"text" : "IP",
 					"varname" : "live.text[2]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.853659510612488, 0.66900634765625, 0.237270578742027, 1.0 ],
+					"id" : "obj-16",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 8.0, 301.0, 345.0, 239.0 ],
+					"proportion" : 0.5
 				}
 
 			}
@@ -827,15 +780,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
-					"order" : 0,
-					"source" : [ "obj-35", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-29", 1 ],
-					"order" : 1,
 					"source" : [ "obj-35", 0 ]
 				}
 
@@ -871,15 +815,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 0 ],
-					"order" : 0,
-					"source" : [ "obj-50", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-34", 1 ],
-					"order" : 1,
 					"source" : [ "obj-50", 0 ]
 				}
 
@@ -894,7 +829,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-32", 0 ],
-					"midpoints" : [ 133.5, 389.5, 39.5, 389.5 ],
+					"midpoints" : [ 127.5, 397.5, 33.5, 397.5 ],
 					"source" : [ "obj-68", 0 ]
 				}
 
@@ -906,7 +841,8 @@
 				}
 
 			}
- ]
+ ],
+		"originid" : "pat-94"
 	}
 
 }

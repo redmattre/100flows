@@ -10,7 +10,7 @@ let ioClient = io.connect(address);
 let roomName;
 let password = "";
 // This will be printed directly to the Max console
-Max.post(`Loaded the ${path.basename(__filename)} script`);
+// Max.post(`Loaded the ${path.basename(__filename)} script`);
 
 let dictIdIn = "LinkMessageIn";
 let dictIdOut = "LinkMessageOut";
