@@ -190,7 +190,7 @@
 
 							}
  ],
-						"originid" : "pat-1899"
+						"originid" : "pat-2067"
 					}
 ,
 					"patching_rect" : [ 16.923078536987305, 299.748748999999975, 239.087915062904358, 22.0 ],
@@ -333,7 +333,7 @@
 
 							}
  ],
-						"originid" : "pat-1901"
+						"originid" : "pat-2069"
 					}
 ,
 					"patching_rect" : [ 147.307706832885742, 509.230817794799805, 38.0, 22.0 ],
@@ -476,7 +476,7 @@
 
 							}
  ],
-						"originid" : "pat-1903"
+						"originid" : "pat-2071"
 					}
 ,
 					"patching_rect" : [ 71.285716891288757, 250.420153141021729, 38.0, 22.0 ],
@@ -731,13 +731,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-70",
-									"linecount" : 5,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 24.0, 78.0, 55.0, 76.0 ],
-									"text" : "safe to use! Run test page to start"
+									"patching_rect" : [ 24.0, 78.0, 71.0, 22.0 ],
+									"text" : "gates open!"
 								}
 
 							}
@@ -862,7 +861,7 @@
 
 							}
  ],
-						"originid" : "pat-1905"
+						"originid" : "pat-2073"
 					}
 ,
 					"patching_rect" : [ 338.076955795288086, 476.923122406005859, 44.0, 22.0 ],
@@ -1073,15 +1072,15 @@
 					"gradient" : 1,
 					"id" : "obj-58",
 					"ignoreclick" : 1,
-					"linecount" : 2,
+					"linecount" : 5,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 617.785724401473999, 329.904761433601379, 40.0, 26.0 ],
+					"patching_rect" : [ 617.785724401473999, 329.904761433601379, 40.0, 53.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 125.471703946590424, 380.188696920871735, 280.973892539739609, 17.0 ],
-					"text" : "safe to use!",
+					"text" : "safe to use! Run test page to start",
 					"textcolor" : [ 0.16241355240345, 0.166287079453468, 0.169717401266098, 1.0 ]
 				}
 
@@ -1948,7 +1947,7 @@
 
 							}
  ],
-						"originid" : "pat-1913",
+						"originid" : "pat-2081",
 						"bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ],
 						"editing_bgcolor" : [ 0.529411764705882, 0.529411764705882, 0.529411764705882, 1.0 ]
 					}
@@ -2745,7 +2744,7 @@
 
 			}
  ],
-		"originid" : "pat-1897",
+		"originid" : "pat-2065",
 		"parameters" : 		{
 			"obj-103" : [ "live.text[3]", "live.text[1]", 0 ],
 			"obj-105" : [ "live.text[5]", "live.text[1]", 0 ],
