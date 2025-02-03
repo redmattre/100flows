@@ -5,13 +5,19 @@ let password = "";
 // let globalMessage = "";
 
 // Funzione per ottenere i parametri dell'URL (es. ?room=stanza1)
-function getRoomFromUrl() {
-  const urlParams = new URLSearchParams(window.location.search);
-  console.log("IOOOOOO", urlParams.get('room'));
-  return urlParams.get('room') || 'testRoom';  // Se non è specificato, metti una stanza predefinita
+async function getRoomFromUrlAsync() {
+    return new Promise((resolve) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        console.log("IOOOOOO", urlParams.get('room'));
+        resolve(urlParams.get('room') || 'testRoom');
+    });
 }
 
-var roomName = getRoomFromUrl();
+(async () => {
+    roomName = await getRoomFromUrlAsync();
+    ioClient.emit('join', roomName, password);
+    console.log("joining");
+})();
 
 makeClient()
 
